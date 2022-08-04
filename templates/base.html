@@ -13,6 +13,8 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    {% block styles %}
+    {% endblock %}
 
     <title>Star Chaser | {% block subtitle %}{% endblock subtitle %}</title>
   </head>
@@ -113,9 +115,10 @@
       </nav>
     </div>
   </header>
-
-    {% block content %}
-    {% endblock content %}
+    <main>
+        {% block content %}
+        {% endblock content %}
+    </main>
     <!-- Ion icons -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
