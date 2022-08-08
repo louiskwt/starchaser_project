@@ -51,7 +51,7 @@
                 </div>
                 <div class="blog-content-wrapper">
                   <button class="blog-topic text-tiny">
-                    Writing
+                    {{ post.tags.all|join:", " }}
                   </button>
                   <h3>
                     <a href="#" class="h3">
