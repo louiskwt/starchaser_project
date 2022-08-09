@@ -3243,23 +3243,16 @@ body.is-menu-visible #menu .close {
   padding: 0em 0 6em 0;
 }
 
-#main > .inner {
-  padding: 0 2.75em;
-}
-
 @media screen and (max-width: 736px) {
   #main {
     padding: 0em 0 4em 0;
-  }
-  #main > .inner {
-    padding: 0 2em;
   }
 }
 
 /* Footer */
 
 #footer {
-  padding: 5em 2em 6em 2em;
+  padding: 5em 0 6em 0;
   background-color: #f6f6f6;
 }
 
@@ -3276,7 +3269,6 @@ body.is-menu-visible #menu .close {
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  padding: 0em, 2.5em;
 }
 
 #footer > .inner > * > :last-child {
@@ -3286,13 +3278,11 @@ body.is-menu-visible #menu .close {
 #footer > .inner section:nth-child(1) {
   width: calc(66% - 2.5em);
   margin-right: 2.5em;
-  padding: 0, 2.5em;
 }
 
 #footer > .inner section:nth-child(2) {
   width: calc(33% - 2.5em);
   margin-left: 2.5em;
-  padding: 0, 2.5em;
 }
 
 #footer > .inner .copyright {
@@ -3302,12 +3292,10 @@ body.is-menu-visible #menu .close {
   list-style: none;
   font-size: 0.8em;
   color: rgba(88, 88, 88, 0.5);
-  padding: 0, 1.5em;
 }
 
 #footer > .inner .copyright a {
   color: inherit;
-  padding: 0, 1.5em;
 }
 
 #footer > .inner .copyright li {
@@ -3316,7 +3304,6 @@ body.is-menu-visible #menu .close {
   line-height: 1;
   padding: 0 0 0 1em;
   margin: 0 0 0 1em;
-  padding: 0, 1.5em;
 }
 
 #footer > .inner .copyright li:first-child {
@@ -3327,11 +3314,7 @@ body.is-menu-visible #menu .close {
 
 @media screen and (max-width: 1280px) {
   #footer {
-    padding: 5em 2.5em 3em 2.5em;
-  }
-
-  #footer > .inner {
-    padding: 0, 1.5em;
+    padding: 5em 0 3em 0;
   }
 
   #footer > .inner section:nth-child(1) {
@@ -3346,9 +3329,6 @@ body.is-menu-visible #menu .close {
 }
 
 @media screen and (max-width: 980px) {
-  #footer {
-    padding: 5em 2.5em 3em 2.5em;
-  }
   #footer > .inner section:nth-child(1) {
     width: 66%;
     margin-right: 0;
@@ -3362,7 +3342,7 @@ body.is-menu-visible #menu .close {
 
 @media screen and (max-width: 736px) {
   #footer {
-    padding: 5em 2.5em 3em 2.5em;
+    padding: 3em 0 1em 0;
   }
 
   #footer > .inner {
@@ -3393,9 +3373,6 @@ body.is-menu-visible #menu .close {
 }
 
 @media screen and (max-width: 480px) {
-  #footer {
-    padding: 5em 2.5em 3em 2.5em;
-  }
   #footer > .inner .copyright {
     margin-top: 3em;
   }
