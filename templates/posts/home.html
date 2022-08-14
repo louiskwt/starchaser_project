@@ -21,16 +21,13 @@
   </p>
 </header>
 <section class="tiles">
-  {% for post in posts %}
+  {% for tag in tags %}
     <article class="style{{ forloop.counter }}">
       <span class="image">
         <img src="{% static 'images/pic02.jpg' %}" alt="blog-cover" />
       </span>
-      <a href="{{ post.get_absolute_url }}">
-        <h2>{{ post.title }}</h2>
-        <div class="content">
-          <p>{{ post.excerpt }}</p>
-        </div>
+      <a href="{% url 'posts:post_list' tag_slug=tag %}">
+        <h2>{{ tag }}</h2>
       </a>
     </article>
   {% endfor %}
