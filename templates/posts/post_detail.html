@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load markdown_extras %}
 <!-- Subtitle -->
 {% block subtitle %} Home {% endblock subtitle %}
 
@@ -19,7 +20,7 @@
 </p>
 
 <p>
-  {{ post.body }}
+  {{ post.body | markdown | safe }}
 </p>
 
 {% endblock content %}
