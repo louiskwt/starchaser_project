@@ -34,4 +34,12 @@
   </form>
 {% endif %}
 
+{% for comment in comments %}
+  <div>
+    <h4>{{ comment.name }}    |   {{ comment.created|date:"SHORT_DATE_FORMAT" }}</h4> 
+    <p>{{ comment.body }}</p>
+  </div>
+  <hr>
+{% endfor %}
+
 {% endblock content %}
