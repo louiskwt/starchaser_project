@@ -23,4 +23,15 @@
   {{ post.body | markdown | safe }}
 </p>
 
+{% if new_comment %}
+  <h3>Your comment has been added</h3>
+{% else %}
+  <h3>Add a comment</h3>
+  <form method="POST">
+    {% csrf_token %}
+    {{ comment_form }}
+    <input type="submit" value="Add Comment" />
+  </form>
+{% endif %}
+
 {% endblock content %}

@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404, render
 from .models import Post, Comment
 from taggit import models as taggit_models
+from .forms import CommentForm
 
 # class HomePageView(TemplateView):
 #     posts = Post.published_posts.all()
@@ -34,9 +35,24 @@ def post_detail(request, year, month, day, post):
     post = get_object_or_404(Post, slug=post, status='published', publish__year=year, publish__month=month, publish__day=day)
     comments = post.comments.filter(active=True)
 
+    comment_form = CommentForm
+    new_comment = None
+
+    if request.method == 'POST':
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+            new_comment = comment_form.save(commit=False)
+            new_comment.post = post
+            new_comment.save()
+        else:
+            comment_form = CommentForm()
+            new_comment = None
+            
     context = {
         'post': post,
         'comments': comments,
+        'comment_form': comment_form,
+        'new_comment': new_comment,
     }
-    
     return render(request, 'posts/post_detail.html', context)
+    
