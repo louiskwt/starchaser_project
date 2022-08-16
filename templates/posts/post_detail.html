@@ -29,8 +29,16 @@
   <h3>Add a comment</h3>
   <form method="POST">
     {% csrf_token %}
-    {{ comment_form }}
-    <input type="submit" value="Add Comment" />
+    <div class="row gtr-uniform">
+      {% for field in comment_form %}
+        <div class="col-12">
+          {{ field }}
+        </div>
+      {% endfor %}
+      <div class="col-12">
+        <input type="submit" value="Add Comment" />
+      </div>
+    </div>
   </form>
 {% endif %}
 
