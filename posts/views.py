@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404, render
-from .models import Post
+from .models import Post, Comment
 from taggit import models as taggit_models
 
 # class HomePageView(TemplateView):
@@ -32,5 +32,11 @@ def post_list(request, tag_slug=None):
 
 def post_detail(request, year, month, day, post):
     post = get_object_or_404(Post, slug=post, status='published', publish__year=year, publish__month=month, publish__day=day)
+    comments = post.comments.filter(active=True)
+
+    context = {
+        'post': post,
+        'comments': comments,
+    }
     
-    return render(request, 'posts/post_detail.html', {'post': post})
+    return render(request, 'posts/post_detail.html', context)
