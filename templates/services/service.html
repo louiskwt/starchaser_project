@@ -1,33 +1,19 @@
 {% extends "base.html" %}
 {% load static %}
 <!-- Subtitle -->
-{% block subtitle %} Home {% endblock subtitle %}
+{% block subtitle %} Services {% endblock subtitle %}
 
 <!-- Content -->
 {% block content %}
 <header>
   <h1>
-    Articles for <b>{{tag}}</b>
+    Sercies
   </h1>
 </header>
 <section class="inner">
-{% if not posts %}
     <section>
         <h2>Coming soon...</h2>
     </section>
-{% else %}
-    {% for post in posts %}
-      <section>
-        <h2>{{ post.title }}</h2>
-        <p>
-            {{ post.body|truncatewords:20 }}
-        </p>
-        <a href="{{ post.get_absolute_url }}" class="button primary">Read More</a>
-      </section>
-      <hr>
-    {% endfor %}
-{% endif %}
-
 </section>
 
 
