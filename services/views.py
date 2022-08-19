@@ -1,8 +1,13 @@
 from django.shortcuts import render
+from .models import SiteContent
 
 # Create your views here.
 def about_view(request):
-    return render(request, 'about/about.html')
+    about_content = SiteContent.objects.get(name="about").content
+    context = {
+        "content": about_content
+    }
+    return render(request, 'about/about.html', context)
 
 def services_view(request):
     return render(request, 'services/services.html')
