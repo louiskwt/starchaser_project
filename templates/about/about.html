@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load markdown_extras %}
 <!-- Subtitle -->
 {% block subtitle %} About {% endblock subtitle %}
 
@@ -12,7 +13,7 @@
 </header>
 <section class="inner">
     <section>
-        <h2>{{ content }}</h2>
+        <h2>{{ content | markdown | safe }}</h2>
     </section>
       <hr>
 
