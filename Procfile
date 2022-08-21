@@ -1,1 +1,1 @@
-web: python manage.py migrate && gunicorn starchaser_dse.wsgi
+web: python manage.py migrate && gunicorn starchaser.wsgi
