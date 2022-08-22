@@ -13,7 +13,7 @@
 <section class="inner">
 {% if not posts %}
     <section>
-        <h2>Coming soon...</h2>
+        <h2>敬請期待😚...</h2>
     </section>
 {% else %}
     {% for post in posts %}
@@ -22,7 +22,7 @@
         <p>
             {{ post.body|truncatewords:20 }}
         </p>
-        <a href="{{ post.get_absolute_url }}" class="button primary">Read More</a>
+        <a href="{{ post.get_absolute_url }}" class="button primary">閱讀更多</a>
       </section>
       <hr>
     {% endfor %}

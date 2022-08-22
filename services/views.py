@@ -1,12 +1,10 @@
 from django.shortcuts import render
 from .models import SiteContent
-from django.http import HttpResponse
+
 
 # Create your views here.
 def about_view(request):
     about_content = SiteContent.objects.get(name="about").content
-    if about_content is None:
-        raise Http404
     context = {
         "content": about_content
     }
