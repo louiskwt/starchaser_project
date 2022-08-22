@@ -1,9 +1,12 @@
 from django.shortcuts import render
 from .models import SiteContent
+from django.http import HttpResponse
 
 # Create your views here.
 def about_view(request):
     about_content = SiteContent.objects.get(name="about").content
+    if about_content is None:
+        raise Http404
     context = {
         "content": about_content
     }
@@ -11,4 +14,14 @@ def about_view(request):
 
 def services_view(request):
     return render(request, 'services/services.html')
+
+
+
+def error_404_view(request, exception):
+    context = {}
+    return render(request, '404.html', context)
+
+def error_500_view(request):
+    context = {}
+    return render(request, '500.html', context)
 
