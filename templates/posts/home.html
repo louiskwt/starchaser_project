@@ -5,27 +5,33 @@
 
 <!-- Content -->
 {% block content %}
-<header>
-  <h1>
-      歡迎來到<b>StarChaser</b>
-    <br>
-    今日就展開你的追星之旅 ⭐️
-  </h1>
+<section id="banner">
+  <h2>StarChaser</h2>
   <p>
-    平凡的學生追尋不平凡的成績👨‍🎓
+    為你而設的補習平台
   </p>
-</header>
-<section class="tiles">
-  {% for tag in tags %}
-    <article class="style{{ forloop.counter }}">
-      <span class="image">
-        <img src="{% static 'images/pic02.jpg' %}" alt="blog-cover" />
-      </span>
-      <a href="{% url 'posts:post_list' tag_slug=tag %}">
-        <h2>{{ tag }}</h2>
+  <ul class="actions special">
+    <li>
+      <a href="" class="button primary">
+        加入我們
       </a>
-    </article>
-  {% endfor %}
+    </li>
+    <li>
+      <a href="" class="button">
+        了解更多
+      </a>
+    </li>
+    <li>
+      <a href="" class="button">
+        學習資源
+      </a>
+    </li>
+    <li>
+      <a href="" class="button">
+        好文分享
+      </a>
+    </li>
+  </ul>
 </section>
 
 
