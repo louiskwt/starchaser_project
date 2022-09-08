@@ -1,0 +1,6 @@
+{% for field in form %}
+    <div class="col-12">
+        {{field}}
+        {{ field.errors }}
+    </div>
+{% endfor %}

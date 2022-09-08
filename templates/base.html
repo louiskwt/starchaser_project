@@ -54,25 +54,26 @@
 				</ul>
 			</nav>
 		</header>
+		<section id="main" class="container">
+			{% block content %}
+			{% endblock %}
+		</section>
+
+		<footer id="footer">
+			<ul class="icons">
+					<li>
+						<a href="https://api.whatsapp.com/send?phone=85263520220&text=哈囉，我有嘢想問" class="icon brands alt fa-whatsapp">
+							<span class="label">WhatsApp</span>
+						</a>
+					</li>
+						<li>
+							<a href="https://www.instagram.com/hk.starchaser/" class="icon brands alt fa-instagram">
+								<span class="label">Instagram</span>
+							</a>
+						</li>
+			</ul>
+		</footer>
 	</div>
-
-	{% block content %}
-	{% endblock %}
-
-	<footer id="footer">
-		<ul class="icons">
-			<li>
-				<a href="https://api.whatsapp.com/send?phone=85263520220&text=哈囉，我有嘢想問" class="icon brands alt fa-whatsapp">
-					<span class="label">WhatsApp</span>
-				</a>
-			</li>
-			<li>
-				<a href="https://www.instagram.com/hk.starchaser/" class="icon brands alt fa-instagram">
-					<span class="label">Instagram</span>
-				</a>
-			</li>
-		</ul>
-	</footer>
 		
 		
 		
