@@ -14,6 +14,11 @@
                     <form method="post" action="{% url 'login' %}">
                         {% csrf_token %}
                         {{ form }}
+                        <div class="mt-2">
+                            <p>
+                                沒有帳號？ <a href="/">馬上註冊 </a>
+                            </p>
+                        </div>                        
                         <div class="col-6 col-12-narrower mt-2">
                             <ul class="actions">
                                 <li>
