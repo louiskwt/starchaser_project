@@ -2,21 +2,29 @@
 {% block subtitle %}登入{% endblock %}
 
 {% block content %}
-    <section id="banner">
-        <section id="login">
-            <h3>登入</h3>
-            <form method="post" action="{% url 'login' %}">
-            {% csrf_token %}
-            {{ form }}
-            <div class="col-6 col-12-narrower">
-                <ul class="actions">
-                    <li>
-                        <input type="submit" value="登入" />
-                    </li>
-                </ul>
+    <section id="main" class="container">
+        <header>
+            <h2>StarChaser</h2>
+            <p>踏上你的摘星之路</p>
+        </header>
+        <div class="row">
+            <div class="col-12">
+                <section class="box">
+                    <h3>登入</h3>
+                    <form method="post" action="{% url 'login' %}">
+                        {% csrf_token %}
+                        {{ form }}
+                        <div class="col-6 col-12-narrower mt-2">
+                            <ul class="actions">
+                                <li>
+                                    <input type="submit" value="登入" />
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
+                </section>
             </div>
-        </form>
-        </section>
+        </div>
     </section>
 
 {% endblock %}

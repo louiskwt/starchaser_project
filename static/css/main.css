@@ -3656,9 +3656,6 @@
 			}
 
 	}
-#login {
-	padding: 12em 0 20em 0;
-}
 
 /* Mobile */
 
@@ -3789,10 +3786,6 @@
 					margin-left: 0;
 					padding-left: 0;
 				}
-		#login {
-				padding: 4em 0;
-			}
-
 	}
 
 /* Mobile (Portrait) */
@@ -3886,10 +3879,6 @@
 		/* Banner */
 
 			#banner {
-				padding: 5em 3em 4em 3em;
-			}
-
-			#login {
 				padding: 5em 3em 4em 3em;
 			}
 
