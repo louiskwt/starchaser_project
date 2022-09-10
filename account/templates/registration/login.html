@@ -2,10 +2,10 @@
 {% block subtitle %}登入{% endblock %}
 
 {% block content %}
-
-    <section class="box">
-        <h3>登入</h3>
-        <form method="post" action="{% url 'login' %}">
+    <section id="banner">
+        <section id="login">
+            <h3>登入</h3>
+            <form method="post" action="{% url 'login' %}">
             {% csrf_token %}
             {{ form }}
             <div class="col-6 col-12-narrower">
@@ -16,6 +16,7 @@
                 </ul>
             </div>
         </form>
+        </section>
     </section>
 
 {% endblock %}
