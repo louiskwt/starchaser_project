@@ -13,7 +13,17 @@
                     <h3>設立個人資訊</h3>
                     <form method="post" action="{% url 'setup' %}">
                         {% csrf_token %}
-                        {{ form }}
+                        {% for field in form %}
+                            <div class="col-12 mb-1">
+                            {{ field.label_tag }}
+                            {{ field }}        
+                            {% if field.errors %}
+                                {% for error in field.errors %}
+                                    <p class="text-danger">{{ error }}</p>
+                                {% endfor %}
+                            {% endif %}
+                            </div>
+                        {% endfor %}
                         
                         <div class="col-6 col-12-narrower mt-2">
                             <ul class="actions">

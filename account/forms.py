@@ -21,6 +21,11 @@ class UserRegistrationForm(forms.ModelForm):
         help_texts = {
             'username': None
         }
+        error_messages = {
+            'username': {
+                'unique': "用户名已被使用"
+            }
+        }
 
     def clean_password2(self):
         cd = self.cleaned_data
@@ -36,6 +41,10 @@ class MemberForm(forms.ModelForm):
             'phone_num': '電話號碼',
             'date_of_birth': '生日',
             'gender': '姓別',
+            'role': '現狀',
             'status': '簡介',
             'active': '是否正在尋找學生/導師'
         }
+        # widgets = {
+        #     'gender': forms.ChoiceField(choices=Member.YES_NO_CHOICES, widget=forms.RadioSelect(attrs={'type': 'checkbox'})), 
+        # }
