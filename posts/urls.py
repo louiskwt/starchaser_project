@@ -10,7 +10,7 @@ sitemaps = {
 }
 
 urlpatterns = [
-    path("", home_display, name="home"),
+    path("", home_display, name="index"),
     path("category/<slug:tag_slug>", post_list, name="post_list"),
     path("<int:year>/<int:month>/<int:day>/<slug:post>/", post_detail, name="post_detail"),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'  )

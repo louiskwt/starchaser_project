@@ -3166,7 +3166,7 @@
 		background-image: url("images/overlay.png"), url("images/banner.jpg");
 		background-position: top left, center center;
 		background-repeat: repeat,							no-repeat;
-		background-size: auto,							cover;
+		background-size: auto, cover;
 		color: #fff;
 		padding: 12em 0 20em 0;
 		text-align: center;
@@ -3687,7 +3687,7 @@
 				padding: 1em;
 			}
 
-				header.major h2, header.major p {
+			header.major h2, header.major p {
 					padding-left: 0.5em;
 					padding-right: 0.5em;
 				}
@@ -3786,7 +3786,6 @@
 					margin-left: 0;
 					padding-left: 0;
 				}
-
 	}
 
 /* Mobile (Portrait) */

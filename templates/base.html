@@ -18,6 +18,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/util.css' %}" />
     <noscript><link rel="stylesheet" href="{% static 'css/noscript.css' %}" /></noscript>
 
     {% block styles %}
@@ -25,17 +26,17 @@
 
     <title>Star Chaser | {% block subtitle %}{% endblock subtitle %}</title>
   </head>
-  <body class="landing is-preload">
+  <body class="">
 	<div class="page-wrapper">
 		<!-- header -->
-		<header id="header" class="alt">
+		<header id="header" >
 			<h1>
 				<a href="/">StarChaser</a>
 			</h1>
 			<nav id="nav">
 				<ul>
 					<li>
-						<a href="#">主頁</a>
+						<a href="/">主頁</a>
 					</li>
 					<li>
 						<a href="/">關於我們</a>
@@ -51,28 +52,47 @@
 							</li>
 						</ul>
 					</li>
+					<li>
+						{% if request.user.is_authenticated %}
+							<a href="{% url 'logout_user' %}">登出</a>
+						{% else %}
+							<a href="{% url 'login' %}">登入</a>
+						{% endif %}
+					</li>
 				</ul>
 			</nav>
 		</header>
+		{% if messages %}
+			<div class="messages mt-3 sticky">
+				{% for message in messages %}
+					<div class="{{ message.tags }}">
+						<span class="close-btn close" onclick="this.parentElement.style.display='none';">
+							&times;
+						</span>
+						{{ message | safe }}
+					</div>
+				{% endfor %}
+			</div>
+		{% endif %}
+		{% block content %}
+		{% endblock %}
+
+
+		<footer id="footer">
+			<ul class="icons">
+					<li>
+						<a href="https://api.whatsapp.com/send?phone=85263520220&text=哈囉，我有嘢想問" class="icon brands alt fa-whatsapp">
+							<span class="label">WhatsApp</span>
+						</a>
+					</li>
+						<li>
+							<a href="https://www.instagram.com/hk.starchaser/" class="icon brands alt fa-instagram">
+								<span class="label">Instagram</span>
+							</a>
+						</li>
+			</ul>
+		</footer>
 	</div>
-
-	{% block content %}
-	{% endblock %}
-
-	<footer id="footer">
-		<ul class="icons">
-			<li>
-				<a href="https://api.whatsapp.com/send?phone=85263520220&text=哈囉，我有嘢想問" class="icon brands alt fa-whatsapp">
-					<span class="label">WhatsApp</span>
-				</a>
-			</li>
-			<li>
-				<a href="https://www.instagram.com/hk.starchaser/" class="icon brands alt fa-instagram">
-					<span class="label">Instagram</span>
-				</a>
-			</li>
-		</ul>
-	</footer>
 		
 		
 		

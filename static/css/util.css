@@ -1,0 +1,60 @@
+.mt-1 {
+    margin-top: 1rem !important;
+}
+
+.mt-2 {
+    margin-top: 2rem !important;
+}
+
+.mt-3 {
+    margin-top: 3rem !important;
+}
+
+.mb-1 {
+    margin-bottom: 1rem !important;
+}
+
+.mb-2 {
+    margin-bottom: 2rem !important;
+}
+
+.mb-3 {
+    margin-bottom: 3rem !important;
+}
+
+.text-danger {
+    color:#e89980;
+}
+
+.success {
+    background-color:#7fcdb8;
+    padding: 20px;
+    color: #fff;
+}
+
+.error {
+    background-color:#e89980;
+    padding: 20px;
+    color: #fff;
+}
+
+.close-btn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+  color: black;
+}
+
+.sticky {
+    position: fixed;
+    width: 100%;
+}

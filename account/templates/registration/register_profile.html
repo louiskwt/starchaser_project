@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block subtitle %}登入{% endblock %}
+
+{% block content %}
+    <section id="main" class="container">
+        <header>
+            <h2>兩步成為StarChaser</h2>
+            <p>2 / 2</p>
+        </header>
+        <div class="row">
+            <div class="col-12">
+                <section class="box">
+                    <h3>設立個人資訊</h3>
+                    <form method="post" action="{% url 'setup' %}">
+                        {% csrf_token %}
+                        {% for field in form %}
+                            <div class="col-12 mb-1">
+                            {{ field.label_tag }}
+                            {{ field }}        
+                            {% if field.errors %}
+                                {% for error in field.errors %}
+                                    <p class="text-danger">{{ error }}</p>
+                                {% endfor %}
+                            {% endif %}
+                            </div>
+                        {% endfor %}
+                        
+                        <div class="col-6 col-12-narrower mt-2">
+                            <ul class="actions">
+                                <li>
+                                    <input type="submit" value="完成" />
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
