@@ -1,10 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .models import Member
 from django.urls import reverse
 from .forms import LoginForm, UserRegistrationForm, MemberForm
+from django.contrib import messages
 
 def user_login(request):
     if request.method == "POST":
@@ -15,14 +16,16 @@ def user_login(request):
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    return HttpResponse('Authenticated Successfully')
+                    messages.success(request, '歡迎回來👏')
+                    return HttpResponseRedirect(reverse('list'))
                 else:
-                    return HttpResponse('Disabled Account')
+                    messages.error(request, '用户名/密碼不正確')
             else:
-                return HttpResponse('Invalid Login')
+                messages.error(request, '用户名/密碼不正確')
     else:
         form = LoginForm()
-        return render(request, 'registration/login.html', {'form': form}) 
+    
+    return render(request, 'registration/login.html', {'form': form}) 
 
 def register(request):
     if request.method == "POST":
@@ -47,6 +50,7 @@ def setup(request):
         set_up_form = MemberForm(instance=request.user.member, data=request.POST)
         if set_up_form.is_valid():
             set_up_form.save()
+            messages.success(request, '註冊完成，歡迎你加入 StarChaser')
             return HttpResponseRedirect(reverse('list'))
     else:
         set_up_form = MemberForm()
@@ -70,3 +74,9 @@ def edit(request):
 @login_required
 def list(request):
     return render(request, 'posts/list.html')
+
+
+def logout_user(request):
+    logout(request)
+    messages.success(request, '登出成功~希望好快會再見👋')
+    return HttpResponseRedirect(reverse('home'))
