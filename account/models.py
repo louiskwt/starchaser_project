@@ -9,6 +9,8 @@ class Member(models.Model):
     MALE = "M"
     STUDENT = "S"
     TEACHER = "T"
+    YES = "Y"
+    NO = 'N'
 
     ROLE_CHOICES = [
         (STUDENT, "學生"),
@@ -20,6 +22,11 @@ class Member(models.Model):
         (FEMALE, '女'),
         (MALE, '男'),
         (EMPTY, "--請選擇--")
+    ]
+
+    YES_NO_CHOICES = [
+        (YES, '是'),
+        (NO, '否')
     ]
 
     class MemberTier(models.TextChoices):
@@ -34,6 +41,7 @@ class Member(models.Model):
     status = models.CharField(max_length=56, blank=True, null=False)
     description = models.TextField()
     member_type = models.CharField(max_length=4, choices=MemberTier.choices, default=MemberTier.FREE)
+    active = models.CharField(max_length=3, choices=YES_NO_CHOICES, default=YES, null=False)
 
     def __str__(self):
         return f'Profile for user {self.user.username}'

@@ -4,24 +4,21 @@
 {% block content %}
     <section id="main" class="container">
         <header>
-            <h2>成為StarChaser</h2>
+            <h2>兩步成為StarChaser</h2>
+            <p>2 / 2</p>
         </header>
         <div class="row">
             <div class="col-12">
                 <section class="box">
-                    <h3>註冊</h3>
-                    <form method="post" action="{% url 'register' %}">
+                    <h3>設立個人資訊</h3>
+                    <form method="post" action="{% url 'setup' %}">
                         {% csrf_token %}
                         {{ form }}
-                        <div class="mt-2">
-                            <p>
-                                已有帳號？ <a href="{% url 'login' %}">馬上登入 </a>
-                            </p>
-                        </div>                        
+                        
                         <div class="col-6 col-12-narrower mt-2">
                             <ul class="actions">
                                 <li>
-                                    <input type="submit" value="提交" />
+                                    <input type="submit" value="完成" />
                                 </li>
                             </ul>
                         </div>

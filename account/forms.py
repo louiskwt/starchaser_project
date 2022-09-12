@@ -1,5 +1,3 @@
-from cProfile import label
-from dataclasses import fields
 from django import forms
 from .models import Member
 from django.contrib.auth.models import User
@@ -30,7 +28,14 @@ class UserRegistrationForm(forms.ModelForm):
             raise forms.ValidationError("2次輸入的密碼不一樣，請再次輸入")
         return cd['password']
 
-class MemberFrom(forms.ModelForm):
+class MemberForm(forms.ModelForm):
     class Meta:
         model = Member
-        fields = ('phone_num', 'date_of_birth', 'gender', 'role', 'status')
+        fields = ('phone_num', 'date_of_birth', 'gender', 'role', 'status', 'active')
+        labels = {
+            'phone_num': '電話號碼',
+            'date_of_birth': '生日',
+            'gender': '姓別',
+            'status': '簡介',
+            'active': '是否正在尋找學生/導師'
+        }
