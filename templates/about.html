@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block subtitle %}登入{% endblock %}
+
+{% block content %}
+    <section id="main" class="container">
+        <header>
+            <h2>StarChaser | 關於我們 </h2>
+            <p>一起踏上摘星之路</p>
+        </header>
+        <div class="row">
+            <div class="col-12">
+                <section class="box">
+                    <h3>關於StarChaser</h3>
+                    <p>隨住市面上對補習的需求日漸增加，而同時補習中介平台愈來愈多，無論無係幫人補習或者想補習的你都有好多選擇</p>
+                    <br />
+                    <p>
+                        然而大部分中介平台既會收取首堂堂費或者其他行政費，而且整個過程並唔係由學生或者導師主導，而係經中介安排，所以到試堂之前，大部分學生同導師都對雙方冇任何深入了解同溝通，有時仲可能有一定嘅誤會。
+                    </p>
+                    <br />
+                    <p>
+                        因為咁我哋就開設 StarChaser呢個平台，目的係要簡化學生同導師配對的過程同方法去令搵補習呢件事變得更具透明度。
+                    </p>
+                    <br />
+                    <p>
+                        讀到呢到係咪都想家入我哋呢？心動就不如行動啦！！ 即刻㩒 <a href="{% url 'register' %}">呢度</a> 去註冊啦
+                    </p>
+                </section>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
