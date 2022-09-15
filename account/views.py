@@ -53,6 +53,8 @@ def setup(request):
             messages.success(request, '註冊完成，歡迎你加入 StarChaser')
             return HttpResponseRedirect(reverse('list'))
     else:
+        for field in MemberForm():
+            print(f'{field.html_name }')
         set_up_form = MemberForm()
 
     return render(request, 'registration/register_profile.html', {

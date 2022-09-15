@@ -49,7 +49,8 @@ INSTALLED_APPS = [
     'taggit',
     'services.apps.ServicesConfig',
     'django.contrib.sitemaps',
-    'django.contrib.sites'
+    'django.contrib.sites',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
