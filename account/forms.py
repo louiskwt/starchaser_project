@@ -1,9 +1,7 @@
-from doctest import Example
 from django import forms
 from .models import Member
 from django.contrib.auth.models import User
-from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Field, Submit
+
 
 # Login Form
 class LoginForm(forms.Form):
@@ -37,23 +35,21 @@ class UserRegistrationForm(forms.ModelForm):
         return cd['password']
 
 class MemberForm(forms.ModelForm):
-    def __init__(self, *args, **kwargs):
-        super(MemberForm, self).__init__(*args, **kwargs)
-        self.helper = FormHelper()
-        self.helper.layout = Layout(
-            Submit('submit', '完成')
-        )
     class Meta:
         model = Member
-        fields = ('phone_num', 'date_of_birth', 'role', 'status', 'active')
+        fields = ('phone_num', 'gender', 'date_of_birth', 'subject', 'role', 'status', 'active')
         labels = {
             'phone_num': '電話號碼',
             'date_of_birth': '生日',
-            # 'gender': '姓別',
+            'gender': '姓別',
+            'subject': '科目',
             'role': '現狀',
             'status': '簡介',
             'active': '是否正在尋找學生/導師'
         }
-        # widgets = {
-        #     'gender': forms.RadioSelect() 
-        # }
+        widgets = {
+            'date_of_birth': forms.DateInput(attrs=dict(type='date')),
+            'gender': forms.RadioSelect(),
+            'subject': forms.RadioSelect(),
+            'active': forms.RadioSelect(),
+        }

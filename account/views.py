@@ -46,6 +46,7 @@ def register(request):
 
 @login_required
 def setup(request):
+    radio_fields = ['gender', 'subject', 'active']
     if request.method == "POST":
         set_up_form = MemberForm(instance=request.user.member, data=request.POST)
         if set_up_form.is_valid():
@@ -58,7 +59,8 @@ def setup(request):
         set_up_form = MemberForm()
 
     return render(request, 'registration/register_profile.html', {
-        "form": set_up_form
+        "form": set_up_form,
+        "radio_fields": radio_fields
     })
 
 @login_required

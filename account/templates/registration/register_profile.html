@@ -16,7 +16,16 @@
                         {% for field in form %}
                             <div class="col-12 mb-1">
                                 {{ field.label_tag }}
-                                {{ field }}        
+                                {% if field.name in radio_fields %}
+                                    {% for radio in field %}
+                                        <input type="checkbox" id="{{ radio.choice_label }}" name="{{ field.name }}" value="{{ radio.data.value }}" hidden>
+                                        <label for="{{ radio.choice_label }}">{{ radio.choice_label }}</label>
+                                    
+                                    {% endfor %}  
+                                {% else %}
+                                    {{ field }}
+                                {% endif %}
+
                                 {% if field.errors %}
                                     {% for error in field.errors %}
                                         <p class="text-danger">{{ error }}</p>
