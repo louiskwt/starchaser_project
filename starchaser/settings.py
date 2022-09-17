@@ -50,7 +50,6 @@ INSTALLED_APPS = [
     'services.apps.ServicesConfig',
     'django.contrib.sitemaps',
     'django.contrib.sites',
-    'crispy_forms',
 ]
 
 MIDDLEWARE = [

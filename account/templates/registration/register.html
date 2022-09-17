@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% load crispy_forms_tags %}
 
 {% block subtitle %}登入{% endblock %}
 
@@ -14,8 +13,7 @@
                     <h3>註冊</h3>
                     <form method="post" action="{% url 'register' %}">
                         {% csrf_token %}
-                        {{form|crispy}}
-                        <!-- {% for field in form %}
+                        {% for field in form %}
                             <div class="col-12 mb-1">
                                 {{ field.label_tag }}
                                 {{ field }}
@@ -24,19 +22,19 @@
                                         <p class="text-danger">{{ error }}</p>
                                     {% endfor %}
                                 {% endif %}
-                            </div> -->
+                            </div>
                         <div class="mt-2">
                             <p>
                                 已有帳號？ <a href="{% url 'login' %}">馬上登入 </a>
                             </p>
                         </div>                        
-                        <!-- <div class="col-6 col-12-narrower mt-2">
+                        <div class="col-6 col-12-narrower mt-2">
                             <ul class="actions">
                                 <li>
                                     <input type="submit" value="提交" />
                                 </li>
                             </ul>
-                        </div> -->
+                        </div>
                     </form>
                 </section>
             </div>
