@@ -2,6 +2,7 @@ from django import forms
 from .models import Member
 from django.contrib.auth.models import User
 
+
 # Login Form
 class LoginForm(forms.Form):
     username = forms.CharField(label="用户名")
@@ -36,15 +37,22 @@ class UserRegistrationForm(forms.ModelForm):
 class MemberForm(forms.ModelForm):
     class Meta:
         model = Member
-        fields = ('phone_num', 'date_of_birth', 'gender', 'role', 'status', 'active')
+        fields = ('phone_num', 'gender', 'date_of_birth', 'subject', 'role', 'status', 'price', 'active')
         labels = {
             'phone_num': '電話號碼',
             'date_of_birth': '生日',
             'gender': '姓別',
-            'role': '現狀',
+            'subject': '科目',
+            'role': '職業',
+            'price': '收費 / 預算',
             'status': '簡介',
             'active': '是否正在尋找學生/導師'
         }
-        # widgets = {
-        #     'gender': forms.ChoiceField(choices=Member.YES_NO_CHOICES, widget=forms.RadioSelect(attrs={'type': 'checkbox'})), 
-        # }
+        widgets = {
+            'date_of_birth': forms.DateInput(attrs=dict(type='date')),
+            'gender': forms.RadioSelect(),
+            'subject': forms.RadioSelect(),
+            'active': forms.RadioSelect(),
+            'role': forms.RadioSelect(),
+            'status': forms.Textarea(),
+        }
