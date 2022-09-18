@@ -46,7 +46,6 @@ class Member(models.Model):
     ROLE_CHOICES = [
         (STUDENT, "學生"),
         (TEACHER, "導師"),
-        (EMPTY, "--請選擇--")
     ]
 
     GENDER_CHOICES = [
@@ -80,7 +79,7 @@ class Member(models.Model):
 
     subject = models.CharField(max_length=8, choices=SUBJECTS_CHOICES, default=EMPTY, null=False)
 
-    price = models.IntegerField(blank=True, null=True)
+    price = models.CharField(default="", max_length=32)
 
     def __str__(self):
         return f'Profile for user {self.user.username}'
