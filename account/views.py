@@ -67,18 +67,27 @@ def edit(request):
         profile_form = MemberForm(request.POST)
         if profile_form.is_valid():
             profile_form.save()
-            return HttpResponseRedirect(reverse('list'))
+            return HttpResponseRedirect(reverse('case'))
     else:
         profile_form = MemberForm()
     
-    return render(request, 'posts/list.html')
+    
+    return render(request, 'registration/register_profile.html.html')
 
-@login_required
-def list(request):
-    return render(request, 'posts/list.html')
 
 
 def logout_user(request):
     logout(request)
     messages.success(request, '登出成功~希望好快會再見👋')
     return HttpResponseRedirect(reverse('home'))
+
+
+def case_list(request):
+    cases = Member.objects.all().filter(active='Y')
+    print(cases)
+
+    context = {
+        'cases': cases
+    }
+
+    return render(request, 'case.html', context=context)
