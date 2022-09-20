@@ -6,6 +6,7 @@ from .models import Member
 from django.urls import reverse
 from .forms import LoginForm, UserRegistrationForm, MemberForm
 from django.contrib import messages
+from django.shortcuts import get_object_or_404
 
 def user_login(request):
     if request.method == "POST":
@@ -91,3 +92,9 @@ def case_list(request):
     }
 
     return render(request, 'case.html', context=context)
+
+
+def case_detail_view(request, slug):
+    case = get_object_or_404(Member, id=slug)
+    context = {"case": case}
+    return render(request, "case_detail.html", context)
