@@ -14,13 +14,16 @@
         <thead>
           <tr>
             <th>
-              個案資料
+              個案
             </th>
             <th>
               科目 
             </th>
             <th>
               簡介
+            </th>
+            <th>
+                地點
             </th>
             <th>
               費用
@@ -34,19 +37,22 @@
           {% for case in cases %}
             <tr>
               <td>
-                {{ case.id }} -- {{ case.get_gender_display }}{{ case.get_role_display }}
+                {{ case.get_gender_display }}{{ case.get_role_display }}
               </td>
               <td>
-                {{ case.subject }}
+                {{ case.get_subject_display }}
               </td>
               <td>
-                {{ case.description }}
+                {{ case.status }}
+              </td>
+              <td>
+                {{ case.location }}
               </td>
               <td>
                 {{ case.price }}
               </td>
               <td>
-                {{ case.phone_num }}
+                <a href="{% url 'case_detail' slug=case.id %}" class="button special small">查看詳情</a>
             </tr>
           {% endfor %}
         </tbody>

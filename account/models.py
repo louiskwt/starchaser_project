@@ -14,6 +14,9 @@ class Member(models.Model):
     YES = "Y"
     NO = 'N'
 
+    ACCEPT = "A"
+    DECLINE = "D"
+
     BIO = 'biology'
     CHN = 'chinese'
     ENG = 'english'
@@ -63,9 +66,14 @@ class Member(models.Model):
         (NO, '否')
     ]
 
+    REFERRAL_CHOICES = [
+        (ACCEPT, '接受'),
+        (DECLINE, '拒絕'),
+    ]
+
     MODE_CHOICES = [
         (FTF, '面授 (不上門)'),
-        (FTFH, '面授 (上門）'),
+        (FTFH, '面授 (上門)'),
         (ONLINE, '線上上課')
     ]
     class MemberTier(models.TextChoices):
@@ -92,7 +100,7 @@ class Member(models.Model):
 
     price = models.CharField(default="", max_length=32)
 
-    referral = models.CharField(max_length=3, choices=YES_NO_CHOICES, default=YES, null=False)
+    referral = models.CharField(max_length=3, choices=REFERRAL_CHOICES, default=ACCEPT, null=False)
 
     mode = models.CharField(max_length=6, choices=MODE_CHOICES, default=FTF, null=False)
 

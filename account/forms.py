@@ -37,16 +37,21 @@ class UserRegistrationForm(forms.ModelForm):
 class MemberForm(forms.ModelForm):
     class Meta:
         model = Member
-        fields = ('phone_num', 'gender', 'date_of_birth', 'subject', 'role', 'status', 'price', 'active')
+        fields = ('phone_num', 'telegram', 'mode', 'location', 'gender', 'date_of_birth', 'subject', 'role', 'status', 'description', 'price', 'active', 'referral')
         labels = {
-            'phone_num': '電話號碼',
+            'phone_num': '可收 WhatsApp 的電話號碼',
+            'telegram': 'Telegram ID （建議使用）',
+            'mode': "教學模式",
+            'location': '上課地點',
             'date_of_birth': '生日',
             'gender': '姓別',
             'subject': '科目',
             'role': '職業',
             'price': '收費 / 預算',
             'status': '簡介',
-            'active': '是否正在尋找學生/導師'
+            'description': "詳細資料",
+            'active': '是否正在尋找學生/導師',
+            'referral': '會否考慮接受我們的轉介 （成功轉介後會收取 $60 轉介費)'
         }
         widgets = {
             'date_of_birth': forms.DateInput(attrs=dict(type='date')),
@@ -54,5 +59,6 @@ class MemberForm(forms.ModelForm):
             'subject': forms.RadioSelect(),
             'active': forms.RadioSelect(),
             'role': forms.RadioSelect(),
-            'status': forms.Textarea(),
+            'referral': forms.RadioSelect(),
+            'description': forms.Textarea(),
         }

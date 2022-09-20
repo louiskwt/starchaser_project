@@ -18,7 +18,7 @@ def user_login(request):
                 if user.is_active:
                     login(request, user)
                     messages.success(request, '歡迎回來👏')
-                    return HttpResponseRedirect(reverse('list'))
+                    return HttpResponseRedirect(reverse('case'))
                 else:
                     messages.error(request, '用户名/密碼不正確')
             else:
@@ -47,13 +47,13 @@ def register(request):
 
 @login_required
 def setup(request):
-    radio_fields = ['gender', 'subject', 'active', 'role']
+    radio_fields = ['gender', 'subject', 'active', 'role', 'referral']
     if request.method == "POST":
         set_up_form = MemberForm(instance=request.user.member, data=request.POST)
         if set_up_form.is_valid():
-            set_up_form.save()
+            set_up_form.save(commit=True)
             messages.success(request, '註冊完成，歡迎你加入 StarChaser')
-            return HttpResponseRedirect(reverse('list'))
+            return HttpResponseRedirect(reverse('case'))
     else:
         set_up_form = MemberForm()
 
