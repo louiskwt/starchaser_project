@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block subtitle %}編輯個人檔案{% endblock %}
+
+{% block content %}
+    <section id="main" class="container">
+        <header>
+            <h2>星級檔案</h2>
+        </header>
+        <div class="row">
+            <div class="col-12">
+                <section class="box">
+                    <h3>編輯個人資訊</h3>
+                    <form method="post" action="{% url 'setup' %}">
+                        {% csrf_token %}
+                        {% for field in form %}
+                            <div class="col-12 mb-1">
+                                {{ field.label_tag }}
+                                {% if field.name in radio_fields %}
+                                    {% for radio in field %}
+                                        <input type="checkbox" id="{{ radio.choice_label }}" name="{{ field.name }}" value="{{ radio.data.value }}" hidden>
+                                        <label for="{{ radio.choice_label }}">{{ radio.choice_label }}</label>
+                                    
+                                    {% endfor %}  
+                                {% else %}
+                                    {{ field }}
+                                {% endif %}
+
+                                {% if field.errors %}
+                                    {% for error in field.errors %}
+                                        <p class="text-danger">{{ error }}</p>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                        
+                        <div class="col-6 col-12-narrower mt-2">
+                            <ul class="actions">
+                                <li>
+                                    <input type="submit" value="完成" />
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

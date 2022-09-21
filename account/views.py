@@ -63,7 +63,8 @@ def setup(request):
     })
 
 @login_required
-def edit(request):
+def edit_profile(request):
+    radio_fields = ['gender', 'subject', 'active', 'role', 'referral']
     if request.method == "POST":
         profile_form = MemberForm(request.POST)
         if profile_form.is_valid():
@@ -73,7 +74,11 @@ def edit(request):
         profile_form = MemberForm()
     
     
-    return render(request, 'registration/register_profile.html.html')
+    context = {
+        "form": profile_form,
+        "radio_fields": radio_fields
+    }
+    return render(request, 'registration/profile.html', context)
 
 
 
