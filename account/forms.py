@@ -51,14 +51,35 @@ class MemberForm(forms.ModelForm):
             'status': '簡介',
             'description': "詳細資料",
             'active': '是否正在尋找學生/導師',
-            'referral': '會否考慮接受我們的轉介 （成功轉介後會收取 $60 轉介費)'
+            'referral': '會否考慮接受我們為你轉介 （成功轉介後會收取 $60 轉介費)'
         }
         widgets = {
+            'phone_num': forms.TextInput(attrs={
+                'placeholder': "63520220"
+            }),
+            'telegram': forms.TextInput(attrs={
+                'placeholder': "@starchaser"
+            }),
+            'location': forms.TextInput(attrs={
+                'placeholder': "中大新亞書院"
+            }),
+            'status': forms.TextInput(attrs={
+                'placeholder': "中大心理學 Year 3 / 2022 DSE 英文 5**"
+            }),
+            'price': forms.TextInput(attrs={
+                'placeholder': "100-250 / 義教 / 搵人一齊溫書"
+            }),
             'date_of_birth': forms.DateInput(attrs=dict(type='date')),
             'gender': forms.RadioSelect(),
             'subject': forms.RadioSelect(),
             'active': forms.RadioSelect(),
             'role': forms.RadioSelect(),
             'referral': forms.RadioSelect(),
-            'description': forms.Textarea(),
+            'description': forms.Textarea(attrs={
+                'placeholder': "補底 / 追星"
+            }),
+        }
+        help_texts = {
+            "status": '最多50字，會展示在追星專頁的卡片/列表內去吸引人的注意',
+            "description": '最多300字，只會展示在個人頁面內去幫人了解你更多'
         }
