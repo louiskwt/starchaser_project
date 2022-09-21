@@ -31,27 +31,24 @@
 		<!-- header -->
 		<header id="header" >
 			<h1>
-				<a href="/">StarChaser</a>
+				<a href="{% url 'home' %}">StarChaser</a>
 			</h1>
 			<nav id="nav">
 				<ul>
 					<li>
-						<a href="/">主頁</a>
+						<a href="{% url 'home' %}">主頁</a>
 					</li>
 					<li>
-						<a href="/">關於我們</a>
+						<a href="{% url 'home' %}">關於我們</a>
 					</li>
 					<li>
-						<a href="#">補習專頁</a>
-						<ul>
-							<li>
-								<a href="#">尋學生</a>
-							</li>
-							<li>
-								<a href="#">尋導師</a>
-							</li>
-						</ul>
+						<a href="{% url 'case' %}">追星專頁</a>
 					</li>
+					{% if user.is_authenticated %}
+						<li>
+							<a href="{% url 'profile' %}">個人資料</a>
+						</li>
+					{% endif %}
 					<li>
 						{% if request.user.is_authenticated %}
 							<a href="{% url 'logout_user' %}">登出</a>

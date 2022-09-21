@@ -1,3 +1,4 @@
+from django.urls import reverse
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.translation import gettext_lazy as _
@@ -13,6 +14,9 @@ class Member(models.Model):
     YES = "Y"
     NO = 'N'
 
+    ACCEPT = "A"
+    DECLINE = "D"
+
     BIO = 'biology'
     CHN = 'chinese'
     ENG = 'english'
@@ -26,6 +30,10 @@ class Member(models.Model):
     SAT = "sat"
     ALV = "a-level"
     UNI = "uni"
+
+    FTFH = "FEFH"
+    FTF = "FTF"
+    ONLINE = "Online"
 
     SUBJECTS_CHOICES = [
         (BIO, "DSE-生物"),
@@ -57,6 +65,17 @@ class Member(models.Model):
         (YES, '是'),
         (NO, '否')
     ]
+
+    REFERRAL_CHOICES = [
+        (ACCEPT, '接受'),
+        (DECLINE, '拒絕'),
+    ]
+
+    MODE_CHOICES = [
+        (FTF, '面授 (不上門)'),
+        (FTFH, '面授 (上門)'),
+        (ONLINE, '線上上課')
+    ]
     class MemberTier(models.TextChoices):
         FREE = "FREE", _('一般會員')
         PAID = "PAID", _('星級會員')
@@ -80,6 +99,17 @@ class Member(models.Model):
     subject = models.CharField(max_length=8, choices=SUBJECTS_CHOICES, default=EMPTY, null=False)
 
     price = models.CharField(default="", max_length=32)
+
+    referral = models.CharField(max_length=3, choices=REFERRAL_CHOICES, default=ACCEPT, null=False)
+
+    mode = models.CharField(max_length=6, choices=MODE_CHOICES, default=FTF, null=False)
+
+    location = models.CharField(max_length=56, default="", blank=False)
+
+    telegram = models.CharField(max_length=32, blank=True, null=True)
+
+    def get_absolute_url(self):
+        return reverse("case_detail", args=[str(self.id)])
 
     def __str__(self):
         return f'Profile for user {self.user.username}'

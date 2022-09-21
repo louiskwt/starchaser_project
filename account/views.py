@@ -6,6 +6,7 @@ from .models import Member
 from django.urls import reverse
 from .forms import LoginForm, UserRegistrationForm, MemberForm
 from django.contrib import messages
+from django.shortcuts import get_object_or_404
 
 def user_login(request):
     if request.method == "POST":
@@ -17,7 +18,7 @@ def user_login(request):
                 if user.is_active:
                     login(request, user)
                     messages.success(request, '歡迎回來👏')
-                    return HttpResponseRedirect(reverse('list'))
+                    return HttpResponseRedirect(reverse('case'))
                 else:
                     messages.error(request, '用户名/密碼不正確')
             else:
@@ -46,13 +47,13 @@ def register(request):
 
 @login_required
 def setup(request):
-    radio_fields = ['gender', 'subject', 'active', 'role']
+    radio_fields = ['gender', 'subject', 'active', 'role', 'referral']
     if request.method == "POST":
         set_up_form = MemberForm(instance=request.user.member, data=request.POST)
         if set_up_form.is_valid():
-            set_up_form.save()
+            set_up_form.save(commit=True)
             messages.success(request, '註冊完成，歡迎你加入 StarChaser')
-            return HttpResponseRedirect(reverse('list'))
+            return HttpResponseRedirect(reverse('case'))
     else:
         set_up_form = MemberForm()
 
@@ -62,23 +63,43 @@ def setup(request):
     })
 
 @login_required
-def edit(request):
+def edit_profile(request):
+    radio_fields = ['gender', 'subject', 'active', 'role', 'referral']
     if request.method == "POST":
         profile_form = MemberForm(request.POST)
         if profile_form.is_valid():
             profile_form.save()
-            return HttpResponseRedirect(reverse('list'))
+            return HttpResponseRedirect(reverse('case'))
     else:
         profile_form = MemberForm()
     
-    return render(request, 'posts/list.html')
+    
+    context = {
+        "form": profile_form,
+        "radio_fields": radio_fields
+    }
+    return render(request, 'registration/profile.html', context)
 
-@login_required
-def list(request):
-    return render(request, 'posts/list.html')
 
 
 def logout_user(request):
     logout(request)
     messages.success(request, '登出成功~希望好快會再見👋')
     return HttpResponseRedirect(reverse('home'))
+
+
+def case_list(request):
+    cases = Member.objects.all().filter(active='Y')
+    print(cases)
+
+    context = {
+        'cases': cases
+    }
+
+    return render(request, 'case.html', context=context)
+
+
+def case_detail_view(request, slug):
+    case = get_object_or_404(Member, id=slug)
+    context = {"case": case}
+    return render(request, "case_detail.html", context)

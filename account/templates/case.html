@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load static %}
+<!-- Subtitle -->
+{% block subtitle %} 補習個案 {% endblock subtitle %}
+
+<!-- Content -->
+{% block content %}
+
+<section id="main" class="container">
+  <h2>Star Board ⭐️</h2>
+  <section class="box" id="desktop-only">
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>
+              個案
+            </th>
+            <th>
+              科目 
+            </th>
+            <th>
+              簡介
+            </th>
+            <th>
+                地點
+            </th>
+            <th>
+              費用
+            </th>
+            <th>
+              傳送門
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for case in cases %}
+            <tr>
+              <td>
+                {{ case.get_gender_display }}{{ case.get_role_display }}
+              </td>
+              <td>
+                {{ case.get_subject_display }}
+              </td>
+              <td>
+                {{ case.status }}
+              </td>
+              <td>
+                {{ case.location }}
+              </td>
+              <td>
+                {{ case.price }}
+              </td>
+              <td>
+                <a href="{% url 'case_detail' slug=case.id %}" class="button special small">查看</a>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="row p-1" id="mobile-only">
+      {% for case in cases %}
+      <div class="col-12-narrower">
+        <section class="box special">
+          <h3>{{ case.get_gender_display }}{{ case.get_role_display }}</h3>
+          <h4> 地點： {{ case.location }} {{ case.get_mode_display }}</h4>
+          <h4> 科目： {{ case.get_subject_display }}</h4>
+          <h4> 簡介： {{ case.status }}</h4>
+          <h4> 費用： {{ case.price }}</h4>
+          <ul class="actions special">
+            <li><a href="{% url 'case_detail' slug=case.id %}" class="button alt">查看</a></li>
+          </ul>
+        </section>
+      </div>
+      {% endfor %}
+  </div>
+</section>
+
+
+{% endblock content %}
