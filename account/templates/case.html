@@ -7,8 +7,8 @@
 {% block content %}
 
 <section id="main" class="container">
-  <h2>Star Board</h2>
-  <section class="box">
+  <h2>Star Board ⭐️</h2>
+  <section class="box" id="desktop-only">
     <div class="table-wrapper">
       <table>
         <thead>
@@ -29,7 +29,7 @@
               費用
             </th>
             <th>
-              聯絡資訊
+              傳送門
             </th>
           </tr>
         </thead>
@@ -52,13 +52,30 @@
                 {{ case.price }}
               </td>
               <td>
-                <a href="{% url 'case_detail' slug=case.id %}" class="button special small">查看詳情</a>
+                <a href="{% url 'case_detail' slug=case.id %}" class="button special small">查看</a>
             </tr>
           {% endfor %}
         </tbody>
       </table>
     </div>
   </section>
+
+  <div class="row p-1" id="mobile-only">
+      {% for case in cases %}
+      <div class="col-12-narrower">
+        <section class="box special">
+          <h3>{{ case.get_gender_display }}{{ case.get_role_display }}</h3>
+          <h4> 地點： {{ case.location }} {{ case.get_mode_display }}</h4>
+          <h4> 科目： {{ case.get_subject_display }}</h4>
+          <h4> 簡介： {{ case.status }}</h4>
+          <h4> 費用： {{ case.price }}</h4>
+          <ul class="actions special">
+            <li><a href="{% url 'case_detail' slug=case.id %}" class="button alt">查看</a></li>
+          </ul>
+        </section>
+      </div>
+      {% endfor %}
+  </div>
 </section>
 
 

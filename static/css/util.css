@@ -22,6 +22,18 @@
     margin-bottom: 3rem !important;
 }
 
+.p-1 {
+    padding: 1rem !important;
+}
+
+.p-2 {
+    padding: 2rem !important;
+}
+
+.p-3 {
+    padding: 2rem !important;
+}
+
 .text-danger {
     color:#e89980;
 }
@@ -62,4 +74,19 @@
 .full-screen {
     width: 100vw;
     height: 100vh;
+}
+
+#mobile-only {
+    display: none;
+}
+
+/* Hide on Mobile  */
+@media screen and (max-width: 480px) {
+    #desktop-only {
+        display: none;
+    }
+    
+    #mobile-only {
+        display: block;
+    }
 }
