@@ -64,15 +64,16 @@ def setup(request):
 
 @login_required
 def edit_profile(request):
+    member = Member.objects.get(user=request.user)
     radio_fields = ['gender', 'subject', 'active', 'role', 'referral']
     if request.method == "POST":
-        profile_form = MemberForm(request.POST)
+        profile_form = MemberForm(instance=request.user.member, data=request.POST)
         if profile_form.is_valid():
-            profile_form.save()
+            profile_form.save(commit=True)
+            messages.success(request, '你的資料更新成功～')
             return HttpResponseRedirect(reverse('case'))
     else:
-        profile_form = MemberForm()
-    
+        profile_form = MemberForm(instance=member)
     
     context = {
         "form": profile_form,
