@@ -7,46 +7,58 @@
 {% block content %}
 
 <section id="main" class="container">
-  <h2>Star File</h2>
-  <section class="box">
-    <header>
-      <h3>{{ case.user.username }}</h3>
-    </header>
-    <hr>
-    <div class="row">
-      <div class="col-6">
-        <p>{{case.get_gender_display}}{{case.get_role_display}}</p>
-        <p>科目： {{ case.get_subject_display }}</p>
+  <div class="p-1">
+      <h2>⭐️ Star File ⭐️</h2>
+      <section class="box">
+        <header>
+          <h3>{{ case.user.username }}</h3>
+        </header>
+        <hr>
+        <div class="row">
+          <div class="col-6">
+            <p>{{case.get_gender_display}}{{case.get_role_display}}</p>
+            <p>科目： {{ case.get_subject_display }}</p>
 
-      </div>
-      <div class="col-6">
-        <p>簡介： {{ case.status }}</p>
-        <p>地點： {{ case.location }}</p>
+          </div>
+          <div class="col-6">
+            <p>簡介： {{ case.status }}</p>
+            <p>地點： {{ case.location }}</p>
 
-      </div>
-    </div>
-    <hr>
-    <div class="row">
-      <div class="col-12-narrower">
-        <p>自我介紹</p>
-        <p>{{ case.description }}</p>
-      </div>
-    </div>
-    <hr>
-    <div class="row">
-      <div class="col-12">
-        {% if case.phone_num %}
-          <a href="https://wa.me/852{{case.phone_num}}" target="_blank" class="button special">WhatsApp</a>
-        {% endif %}
-      </div>
-      <div class="col-12 mt-3">
-        {% if case.telegram %}
-          <a href="https://telegram.me/{{case.telegram}}" target="_blank" class="button special">Telegram</a>
-        {% endif %}
-      </div>
-    </div>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-12-narrower">
+            <p>自我介紹</p>
+            <p>{{ case.description }}</p>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-12">
+            {% if case.phone_num %}
+              <a href="https://wa.me/852{{case.phone_num}}" target="_blank" class="button fit">
+                  <span class="icon brands alt fa-whatsapp">
+                   </span>
+                &nbsp;Whatsapp
+              </a>
+          
+            {% endif %}
+          </div>
+          <div class="col-12 mt-3">
+            {% if case.telegram %}
+              <a href="https://telegram.me/{{case.telegram}}" target="_blank" class="button fit">
+                  <span class="icon brands alt fa-telegram">
+                   </span>
+                &nbsp;
+                Telegram
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      </section>
+  </div>
 
-  </section>
 </section>
 
 
