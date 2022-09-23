@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'services.apps.ServicesConfig',
     'django.contrib.sitemaps',
     'django.contrib.sites',
+    'multiselectfield',
 ]
 
 MIDDLEWARE = [
@@ -60,7 +61,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware'
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'starchaser.urls'
