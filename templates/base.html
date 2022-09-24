@@ -41,10 +41,10 @@
 					<li>
 						<a href="{% url 'home' %}">關於我們</a>
 					</li>
-					<li>
-						<a href="{% url 'case' %}">追星專頁</a>
-					</li>
 					{% if user.is_authenticated %}
+						<li>
+							<a href="{% url 'case' %}">追星專頁</a>
+						</li>
 						<li>
 							<a href="{% url 'profile' %}">個人資料</a>
 						</li>

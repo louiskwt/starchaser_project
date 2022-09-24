@@ -93,9 +93,9 @@ def logout_user(request):
     return HttpResponseRedirect(reverse('home'))
 
 
+@login_required
 def case_list(request):
     cases = Member.objects.all().filter(active='Y')
-    print(cases)
 
     context = {
         'cases': cases
@@ -103,7 +103,7 @@ def case_list(request):
 
     return render(request, 'case.html', context=context)
 
-
+@login_required
 def case_detail_view(request, slug):
     case = get_object_or_404(Member, id=slug)
     context = {"case": case}
