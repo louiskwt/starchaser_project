@@ -8,6 +8,10 @@ from .forms import LoginForm, UserRegistrationForm, MemberForm
 from django.contrib import messages
 from django.shortcuts import get_object_or_404
 
+
+radio_fields = ['gender', 'active', 'role', 'consent', 'referral']
+multi_select_fields = ['subject']
+
 def user_login(request):
     if request.method == "POST":
         form = LoginForm(request.POST)
@@ -47,7 +51,6 @@ def register(request):
 
 @login_required
 def setup(request):
-    radio_fields = ['gender', 'subject', 'active', 'role', 'referral']
     if request.method == "POST":
         set_up_form = MemberForm(instance=request.user.member, data=request.POST)
         if set_up_form.is_valid():
@@ -59,24 +62,26 @@ def setup(request):
 
     return render(request, 'registration/register_profile.html', {
         "form": set_up_form,
-        "radio_fields": radio_fields
+        "radio_fields": radio_fields,
+        "multi_select_fields": multi_select_fields
     })
 
 @login_required
 def edit_profile(request):
-    radio_fields = ['gender', 'subject', 'active', 'role', 'referral']
+    member = Member.objects.get(user=request.user)
     if request.method == "POST":
-        profile_form = MemberForm(request.POST)
+        profile_form = MemberForm(instance=request.user.member, data=request.POST)
         if profile_form.is_valid():
-            profile_form.save()
+            profile_form.save(commit=True)
+            messages.success(request, '你的資料更新成功～')
             return HttpResponseRedirect(reverse('case'))
     else:
-        profile_form = MemberForm()
-    
+        profile_form = MemberForm(instance=member)
     
     context = {
         "form": profile_form,
-        "radio_fields": radio_fields
+        "radio_fields": radio_fields,
+        "multi_select_fields": multi_select_fields
     }
     return render(request, 'registration/profile.html', context)
 
@@ -88,9 +93,9 @@ def logout_user(request):
     return HttpResponseRedirect(reverse('home'))
 
 
+@login_required
 def case_list(request):
     cases = Member.objects.all().filter(active='Y')
-    print(cases)
 
     context = {
         'cases': cases
@@ -98,7 +103,7 @@ def case_list(request):
 
     return render(request, 'case.html', context=context)
 
-
+@login_required
 def case_detail_view(request, slug):
     case = get_object_or_404(Member, id=slug)
     context = {"case": case}

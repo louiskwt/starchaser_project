@@ -21,6 +21,11 @@
                                         <input type="checkbox" id="{{ radio.choice_label }}" name="{{ field.name }}" value="{{ radio.data.value }}" hidden>
                                         <label for="{{ radio.choice_label }}">{{ radio.choice_label }}</label>
                                     
+                                    {% endfor %}
+                                {% elif field.name in multi_select_fields %}
+                                    {% for radio in field %}
+                                            <input type="checkbox" id="{{ radio.choice_label }}" name="{{ field.name }}" value="{{ radio.data.value }}"  {% if radio.data.attrs.selected is True %} checked {% endif %} />
+                                            <label for="{{ radio.choice_label }}">{{ radio.choice_label }}</label>
                                     {% endfor %}  
                                 {% else %}
                                     {{ field }}
@@ -31,12 +36,15 @@
                                         <p class="text-danger">{{ error }}</p>
                                     {% endfor %}
                                 {% endif %}
-                                                                                               {% if field.help_text %}
+                                                                                                                {% if field.help_text %}
                                     <p class="mt-1">* {{ field.help_text }}</p>
                                 {% endif %}
                             </div>
                         {% endfor %}
                         
+                        <div class="col-6 col-12-narrower mt-1">
+                            <p>當你按完成時，你表示你已經閱讀並同意我哋嘅<a href="{% url 'terms' %}" target="_blank">守則及條款</a></p>
+                        </div>
                         <div class="col-6 col-12-narrower mt-2">
                             <ul class="actions">
                                 <li>
