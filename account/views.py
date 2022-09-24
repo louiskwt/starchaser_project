@@ -9,7 +9,7 @@ from django.contrib import messages
 from django.shortcuts import get_object_or_404
 
 
-radio_fields = ['gender', 'active', 'role', 'referral']
+radio_fields = ['gender', 'active', 'role', 'consent', 'referral']
 multi_select_fields = ['subject']
 
 def user_login(request):

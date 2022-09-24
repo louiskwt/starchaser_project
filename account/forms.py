@@ -37,7 +37,7 @@ class UserRegistrationForm(forms.ModelForm):
 class MemberForm(forms.ModelForm):
     class Meta:
         model = Member
-        fields = ('phone_num', 'telegram', 'mode', 'location', 'gender', 'date_of_birth', 'subject', 'role', 'status', 'description', 'price', 'active', 'referral')
+        fields = ('phone_num', 'telegram', 'mode', 'location', 'gender', 'date_of_birth', 'subject', 'role', 'status', 'description', 'price', 'active', 'referral',)
         labels = {
             'phone_num': '可收 WhatsApp 的電話號碼',
             'telegram': 'Telegram ID （建議使用）',
@@ -74,6 +74,7 @@ class MemberForm(forms.ModelForm):
             'subject': forms.SelectMultiple(),
             'active': forms.RadioSelect(),
             'role': forms.RadioSelect(),
+            'consent': forms.RadioSelect(),
             'referral': forms.RadioSelect(),
             'description': forms.Textarea(attrs={
                 'placeholder': "補底 / 追星"
