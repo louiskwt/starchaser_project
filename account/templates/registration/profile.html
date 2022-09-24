@@ -13,14 +13,18 @@
                     <form method="post" action="{% url 'profile' %}">
                         {% csrf_token %}
                         {% for field in form %}
-                            <div class="col-12 mb-1">
+                            <div class="col-12 mb-1" {% if field.name in multi_select_fields %} id="id_{{field.name}}" {% endif %}>
                                 {{ field.label_tag }}
                                 {% if field.name in radio_fields %}
                                     {% for radio in field %}
                                         <input type="checkbox" id="{{ radio.choice_label }}" name="{{ field.name }}" value="{{ radio.data.value }}"  {% if radio.data.attrs.checked is True %} checked {% endif %} >
                                         <label for="{{ radio.choice_label }}">{{ radio.choice_label }}</label>
-                                    
                                     {% endfor %}  
+                                {% elif field.name in multi_select_fields %}
+                                    {% for radio in field %}
+                                            <input type="checkbox" id="{{ radio.choice_label }}" name="{{ field.name }}" value="{{ radio.data.value }}"  {% if radio.data.attrs.selected is True %} checked {% endif %} />
+                                            <label for="{{ radio.choice_label }}">{{ radio.choice_label }}</label>
+                                    {% endfor %}
                                 {% else %}
                                     {{ field }}
                                 {% endif %}

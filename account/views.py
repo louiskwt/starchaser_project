@@ -8,6 +8,10 @@ from .forms import LoginForm, UserRegistrationForm, MemberForm
 from django.contrib import messages
 from django.shortcuts import get_object_or_404
 
+
+radio_fields = ['gender', 'active', 'role', 'referral']
+multi_select_fields = ['subject']
+
 def user_login(request):
     if request.method == "POST":
         form = LoginForm(request.POST)
@@ -47,7 +51,6 @@ def register(request):
 
 @login_required
 def setup(request):
-    radio_fields = ['gender', 'subject', 'active', 'role', 'referral']
     if request.method == "POST":
         set_up_form = MemberForm(instance=request.user.member, data=request.POST)
         if set_up_form.is_valid():
@@ -59,13 +62,13 @@ def setup(request):
 
     return render(request, 'registration/register_profile.html', {
         "form": set_up_form,
-        "radio_fields": radio_fields
+        "radio_fields": radio_fields,
+        "multi_select_fields": multi_select_fields
     })
 
 @login_required
 def edit_profile(request):
     member = Member.objects.get(user=request.user)
-    radio_fields = ['gender', 'subject', 'active', 'role', 'referral']
     if request.method == "POST":
         profile_form = MemberForm(instance=request.user.member, data=request.POST)
         if profile_form.is_valid():
@@ -77,7 +80,8 @@ def edit_profile(request):
     
     context = {
         "form": profile_form,
-        "radio_fields": radio_fields
+        "radio_fields": radio_fields,
+        "multi_select_fields": multi_select_fields
     }
     return render(request, 'registration/profile.html', context)
 

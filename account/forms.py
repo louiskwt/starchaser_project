@@ -71,7 +71,7 @@ class MemberForm(forms.ModelForm):
             }),
             'date_of_birth': forms.DateInput(attrs=dict(type='date')),
             'gender': forms.RadioSelect(),
-            'subject': forms.RadioSelect(),
+            'subject': forms.SelectMultiple(),
             'active': forms.RadioSelect(),
             'role': forms.RadioSelect(),
             'referral': forms.RadioSelect(),

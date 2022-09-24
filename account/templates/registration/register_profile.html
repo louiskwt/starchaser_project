@@ -21,6 +21,11 @@
                                         <input type="checkbox" id="{{ radio.choice_label }}" name="{{ field.name }}" value="{{ radio.data.value }}" hidden>
                                         <label for="{{ radio.choice_label }}">{{ radio.choice_label }}</label>
                                     
+                                    {% endfor %}
+                                {% elif field.name in multi_select_fields %}
+                                    {% for radio in field %}
+                                            <input type="checkbox" id="{{ radio.choice_label }}" name="{{ field.name }}" value="{{ radio.data.value }}"  {% if radio.data.attrs.selected is True %} checked {% endif %} />
+                                            <label for="{{ radio.choice_label }}">{{ radio.choice_label }}</label>
                                     {% endfor %}  
                                 {% else %}
                                     {{ field }}
