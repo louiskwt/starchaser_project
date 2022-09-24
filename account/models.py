@@ -105,7 +105,7 @@ class Member(models.Model):
 
     active = models.CharField(max_length=3, choices=YES_NO_CHOICES, default=YES, null=False)
 
-    subject = MultiSelectField(choices=SUBJECTS_CHOICES, max_length=7)
+    subject = MultiSelectField(choices=SUBJECTS_CHOICES, max_length=128)
 
     price = models.CharField(default="", max_length=32)
     
