@@ -93,7 +93,7 @@ class Member(models.Model):
 
     date_of_birth = models.DateField(blank=True, null=True)
 
-    phone_num = models.CharField(max_length=8, blank=True)
+    phone_num = models.CharField(max_length=8, blank=False, default="")
 
     gender = models.CharField(max_length=7, choices=GENDER_CHOICES, default=EMPTY, null=False)
 
