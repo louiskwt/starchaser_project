@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'services.apps.ServicesConfig',
     'django.contrib.sitemaps',
     'django.contrib.sites',
+    'payment.apps.PaymentConfig',
     'multiselectfield',
 ]
 
