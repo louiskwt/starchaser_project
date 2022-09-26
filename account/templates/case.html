@@ -14,7 +14,7 @@
         <thead>
           <tr>
             <th>
-              個案
+              會員
             </th>
             <th>
               科目 
@@ -37,7 +37,7 @@
           {% for case in cases %}
             <tr>
               <td>
-                {{ case.get_gender_display }}{{ case.get_role_display }}
+                {{ case.user.username }} ({{ case.get_role_display }})
               </td>
               <td>
                 {{ case.get_subject_display }}
@@ -64,7 +64,7 @@
       {% for case in cases %}
       <div class="col-12-narrower">
         <section class="box special">
-          <h3>{{ case.get_gender_display }}{{ case.get_role_display }}</h3>
+          <h3>{{ case.user.username }}({{ case.get_role_display }})</h3>
           <h4> 地點： {{ case.location }} {{ case.get_mode_display }}</h4>
           <h4> 科目： {{ case.get_subject_display }}</h4>
           <h4> 簡介： {{ case.status }}</h4>
