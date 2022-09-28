@@ -149,5 +149,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGOUT_REDIRECT_URL = "/"
 
+DOMAIN_URL = str(os.getenv('DOMAIN_URL'))
 STRIPE_PUBLISHABLE_KEY = str(os.getenv('STRIPE_PUBLISHABLE_KEY'))
 STRIPE_SECRET_KEY = str(os.getenv('STRIPE_SECRET_KEY'))
