@@ -7,6 +7,12 @@ import stripe
 class PaymentPageView(TemplateView):
     template_name = 'payment/payment.html'
 
+class SuccessView(TemplateView):
+    template_name = 'payment/success.html'
+
+class CancelledView(TemplateView):
+    template_name = 'payment/cancelled.html'
+
 
 @csrf_exempt
 def stripe_config(request):
@@ -24,8 +30,8 @@ def create_checkout_session(request):
         print('fired')
         try:
             checkout_session = stripe.checkout.Session.create(
-                success_url= domain_url + 'success?session_id={CHECKOUT_SESSION_ID}',
-                cancel_url= domain_url + 'cancelled/',
+                success_url= domain_url + '/payment/success?session_id={CHECKOUT_SESSION_ID}',
+                cancel_url= domain_url + '/payment/cancelled/',
                 payment_method_types=['card'],
                 mode='payment',
                 line_items=[

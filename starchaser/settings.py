@@ -30,7 +30,7 @@ SECRET_KEY = str(os.getenv("SECRET_KEY"))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'starchaserproject-production.up.railway.app', 'dsestarchaser.me']
+ALLOWED_HOSTS = ['127.0.0.1', 'starchaserproject-production.up.railway.app', 'dsestarchaser.me', 'localhost']
 
 CSRF_TRUSTED_ORIGINS=['https://www.dsestarchaser.me', 'https://starchaserproject-production.up.railway.app/']
 # Application definition
