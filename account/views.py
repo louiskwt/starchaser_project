@@ -78,10 +78,16 @@ def edit_profile(request):
     else:
         profile_form = MemberForm(instance=member)
     
+    if member.member_type == 'FREE':
+        member_tier = '普通會員'
+    else:
+        member_tier = '星級會員'
+    
     context = {
         "form": profile_form,
         "radio_fields": radio_fields,
-        "multi_select_fields": multi_select_fields
+        "multi_select_fields": multi_select_fields,
+        "member_tier": member_tier
     }
     return render(request, 'registration/profile.html', context)
 
