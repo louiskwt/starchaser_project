@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+<!-- Subtitle -->
+{% block subtitle %} 付款取消～ {% endblock subtitle %}
+
+<!-- Content -->
+{% block content %}
+
+<section id="main" class="container">
+  <div class="p-1">
+      <h2>你的交易已被取消 🥲 </h2>
+      <section class="box">
+        <div class="row">
+            <div class="col-12-narrower">
+                <a href="{% url 'home' %}" class="button special">
+                    返回主頁
+                </a>
+            </div>
+        </div>
+      </section>
+  </div>
+
+</section>

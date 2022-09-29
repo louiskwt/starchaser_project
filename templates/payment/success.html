@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+<!-- Subtitle -->
+{% block subtitle %} 付款成功～ {% endblock subtitle %}
+
+<!-- Content -->
+{% block content %}
+
+<section id="main" class="container">
+  <div class="p-1">
+      <h2>付款成功！！</h2>
+      <section class="box">
+        <div class="row">
+            <div class="col-12-narrower">
+                <a href="{% url 'profile' %}" class="button special">
+                    查看你的 Profile
+                </a>
+            </div>
+        </div>
+      </section>
+  </div>
+
+</section>

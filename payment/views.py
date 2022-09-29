@@ -34,7 +34,8 @@ def create_checkout_session(request):
                             'currency': 'hkd',
                             'unit_amount': '6800',
                             'product_data': {
-                                'name': "StarChaser 星級會員"
+                                'name': "StarChaser 星級會員",
+                                "description": "成為星級會員去享受自由搵導師或學生的體驗",
                             }
                         },
                         'quantity': 1,
