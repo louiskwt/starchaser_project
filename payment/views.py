@@ -28,9 +28,9 @@ def create_checkout_session(request):
     if request.method == 'GET':
         domain_url = settings.DOMAIN_URL
         stripe.api_key = settings.STRIPE_SECRET_KEY
-        print('fired')
         try:
             checkout_session = stripe.checkout.Session.create(
+                client_reference_id=request.user.id if request.user.is_authenticated else None,
                 success_url= domain_url + '/payment/success?session_id={CHECKOUT_SESSION_ID}',
                 cancel_url= domain_url + '/payment/cancelled/',
                 payment_method_types=['card'],
@@ -76,5 +76,6 @@ def stripe_webhook(request):
     if event['type'] == 'checkout.session.completed':
         print("Payment was successful : )")
         # TODO: Run custom code
+        print(f"event data: {event.data.object}")
     
     return HttpResponse(status=200)
