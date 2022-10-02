@@ -1,8 +1,9 @@
-from os import stat
 from django.http.response import JsonResponse, HttpResponse
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic.base import TemplateView
+from .models import PaymentRecord
+from django.contrib.auth.models import User
 import stripe
 
 class PaymentPageView(TemplateView):
@@ -74,8 +75,18 @@ def stripe_webhook(request):
         return HttpResponse(status=400)
 
     if event['type'] == 'checkout.session.completed':
-        print("Payment was successful : )")
-        # TODO: Run custom code
         print(f"event data: {event.data.object}")
+        user_id = event.data.object["client_reference_id"]
+        user = User.objects.get(id=user_id)
+        print(f"found user: {user}")
+        try:
+            record = PaymentRecord(user=user, name=event.data.object.customer_details["name"], email=event.data.object.customer_details["email"])
+            record.save()
+        except KeyError as e:
+            print(e)
+            # Maybe loggin it
+
+        print("All went well : )")
+
     
     return HttpResponse(status=200)
