@@ -52,7 +52,18 @@
                 {{ case.price }}
               </td>
               <td>
-                <a href="{% url 'case_detail' slug=case.id %}" class="button special small">查看</a>
+                {% if is_starmember == True %} 
+                  <a href="{% url 'case_detail' slug=case.id %}" class="button medium">查看</a>   
+                {% else %}
+                   <a href="{% url 'case_detail' slug=case.id %}" class="button disabled">查看</a>        
+                {% endif %}
+              </td>
+              {% if is_starmember == False %} 
+                <td>
+                    <a href="{% url 'payment' %}" class="button ml-3">升級查看</a> 
+                </td>
+              {% endif %}
+                
             </tr>
           {% endfor %}
         </tbody>
@@ -70,7 +81,13 @@
           <h4> 簡介： {{ case.status }}</h4>
           <h4> 費用： {{ case.price }}</h4>
           <ul class="actions special">
-            <li><a href="{% url 'case_detail' slug=case.id %}" class="button alt">查看</a></li>
+            {% if is_starmember == True %} 
+                <li><a href="{% url 'case_detail' slug=case.id %}" class="button alt">查看</a></li>     
+            {% else %}
+                <li><a href="{% url 'case_detail' slug=case.id %}" class="button alt disabled">立即升級查看</a></li>
+                <li><a href="{% url 'payment' %}" class="button alt">立即升級</a></li>       
+            {% endif %}
+
           </ul>
         </section>
       </div>

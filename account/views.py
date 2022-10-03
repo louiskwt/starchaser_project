@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from .models import Member
 from django.urls import reverse
 from .forms import LoginForm, UserRegistrationForm, MemberForm
@@ -102,9 +103,14 @@ def logout_user(request):
 @login_required
 def case_list(request):
     cases = Member.objects.all().filter(active='Y')
+    user_object = User.objects.get(id=request.user.id)
+    member_object = Member.objects.get(user=user_object)
 
+    is_starmember = member_object.member_type == Member.MemberTier.PAID 
+    print(is_starmember)
     context = {
-        'cases': cases
+        'cases': cases,
+        'is_starmember': is_starmember
     }
 
     return render(request, 'case.html', context=context)
