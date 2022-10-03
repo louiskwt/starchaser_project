@@ -3,6 +3,7 @@ from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic.base import TemplateView
 from .models import PaymentRecord
+from account.models import Member
 from django.contrib.auth.models import User
 import stripe
 
@@ -82,9 +83,15 @@ def stripe_webhook(request):
         try:
             record = PaymentRecord(user=user, name=event.data.object.customer_details["name"], email=event.data.object.customer_details["email"])
             record.save()
+
+            member = Member.objects.get(user=user)
+            member.member_type = Member.MemberTier.PAID
+            member.save()
         except KeyError as e:
             print(e)
             # Maybe loggin it
+        except:
+            print("Something went wrong")
 
         print("All went well : )")
 
