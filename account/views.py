@@ -102,9 +102,11 @@ def logout_user(request):
 
 @login_required
 def case_list(request):
-    cases = Member.objects.all().filter(active='Y')
     user_object = User.objects.get(id=request.user.id)
     member_object = Member.objects.get(user=user_object)
+    type = Member.STUDENT if member_object.role == Member.TEACHER else Member.TEACHER
+
+    cases = Member.objects.all().filter(active='Y', role=type)
 
     is_starmember = member_object.member_type == Member.MemberTier.PAID 
     print(is_starmember)

@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 {% load static %}
 <!-- Subtitle -->
-{% block subtitle %} 補習個案 {% endblock subtitle %}
+{% block subtitle %} 追星個案 {% endblock subtitle %}
 
 <!-- Content -->
 {% block content %}
 
 <section id="main" class="container">
-  <h2>Star Board ⭐️</h2>
+  <h2>⭐️ 追星個案 ⭐️</h2>
   <section class="box" id="desktop-only">
     <div class="table-wrapper">
       <table>
@@ -55,7 +55,7 @@
                 {% if is_starmember == True %} 
                   <a href="{% url 'case_detail' slug=case.id %}" class="button medium">查看</a>   
                 {% else %}
-                   <a href="{% url 'case_detail' slug=case.id %}" class="button disabled">查看</a>        
+                   <a href="#" class="button disabled">查看</a>        
                 {% endif %}
               </td>
               {% if is_starmember == False %} 
@@ -84,7 +84,7 @@
             {% if is_starmember == True %} 
                 <li><a href="{% url 'case_detail' slug=case.id %}" class="button alt">查看</a></li>     
             {% else %}
-                <li><a href="{% url 'case_detail' slug=case.id %}" class="button alt disabled">立即升級查看</a></li>
+                <li><a href="#" class="button alt disabled">升級查看</a></li>
                 <li><a href="{% url 'payment' %}" class="button alt">立即升級</a></li>       
             {% endif %}
 
