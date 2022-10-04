@@ -30,7 +30,7 @@ SECRET_KEY = str(os.getenv("SECRET_KEY"))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'starchaserproject-production.up.railway.app', 'dsestarchaser.me']
+ALLOWED_HOSTS = ['127.0.0.1', 'starchaserproject-production.up.railway.app', 'dsestarchaser.me', 'localhost']
 
 CSRF_TRUSTED_ORIGINS=['https://www.dsestarchaser.me', 'https://starchaserproject-production.up.railway.app/']
 # Application definition
@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'services.apps.ServicesConfig',
     'django.contrib.sitemaps',
     'django.contrib.sites',
+    'payment.apps.PaymentConfig',
     'multiselectfield',
 ]
 
@@ -147,3 +148,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGOUT_REDIRECT_URL = "/"
+
+DOMAIN_URL = str(os.getenv('DOMAIN_URL'))
+STRIPE_PUBLISHABLE_KEY = str(os.getenv('STRIPE_PUBLISHABLE_KEY'))
+STRIPE_SECRET_KEY = str(os.getenv('STRIPE_SECRET_KEY'))
+STRIPE_ENDPOINT_SECRET = str(os.getenv('STRIPE_ENDPOINT_SECRET'))

@@ -16,11 +16,13 @@
         加入我們
       </a>
     </li>
+    {% if user.is_authenticated %}
     <li>
       <a href="{% url 'case' %}" class="button">
         踏上星途
       </a>
     </li>
+    {% endif %}
     <li>
       <a href=" {% url 'about' %}" class="button">
         了解更多

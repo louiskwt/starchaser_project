@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from .models import Member
 from django.urls import reverse
 from .forms import LoginForm, UserRegistrationForm, MemberForm
@@ -78,10 +79,16 @@ def edit_profile(request):
     else:
         profile_form = MemberForm(instance=member)
     
+    if member.member_type == 'FREE':
+        member_tier = '普通會員'
+    else:
+        member_tier = '星級會員'
+    
     context = {
         "form": profile_form,
         "radio_fields": radio_fields,
-        "multi_select_fields": multi_select_fields
+        "multi_select_fields": multi_select_fields,
+        "member_tier": member_tier
     }
     return render(request, 'registration/profile.html', context)
 
@@ -95,10 +102,17 @@ def logout_user(request):
 
 @login_required
 def case_list(request):
-    cases = Member.objects.all().filter(active='Y')
+    user_object = User.objects.get(id=request.user.id)
+    member_object = Member.objects.get(user=user_object)
+    type = Member.STUDENT if member_object.role == Member.TEACHER else Member.TEACHER
 
+    cases = Member.objects.all().filter(active='Y', role=type)
+
+    is_starmember = member_object.member_type == Member.MemberTier.PAID 
+    print(is_starmember)
     context = {
-        'cases': cases
+        'cases': cases,
+        'is_starmember': is_starmember
     }
 
     return render(request, 'case.html', context=context)

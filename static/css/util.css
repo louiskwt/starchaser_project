@@ -38,6 +38,10 @@
     color:#e89980;
 }
 
+.text-bold {
+    font-weight: bold;
+}
+
 .success {
     background-color:#7fcdb8;
     padding: 20px;

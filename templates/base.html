@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="{% static 'css/main.css' %}" />
     <link rel="stylesheet" href="{% static 'css/util.css' %}" />
     <noscript><link rel="stylesheet" href="{% static 'css/noscript.css' %}" /></noscript>
+	<script src="https://js.stripe.com/v3/"></script>
+	<script src="{% static 'js/payment.js' %}"></script>
 
     {% block styles %}
     {% endblock %}
@@ -43,7 +45,10 @@
 					</li>
 					{% if user.is_authenticated %}
 						<li>
-							<a href="{% url 'case' %}">追星專頁</a>
+							<a href="{% url 'case' %}">立即追星</a>
+						</li>
+						<li>
+							<a href="{% url 'payment' %}">會員升級</a>
 						</li>
 						<li>
 							<a href="{% url 'profile' %}">個人資料</a>
@@ -53,6 +58,7 @@
 						{% if request.user.is_authenticated %}
 							<a href="{% url 'logout_user' %}">登出</a>
 						{% else %}
+																											<a href="{% url 'register' %}">註冊</a>
 							<a href="{% url 'login' %}">登入</a>
 						{% endif %}
 					</li>
