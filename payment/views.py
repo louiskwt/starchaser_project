@@ -51,10 +51,10 @@ def create_checkout_session(request):
                     }
                 ]
             )
-            print(f'session: {checkout_session}')
+          
             return JsonResponse({'sessionId': checkout_session['id']})
         except Exception as e:
-            print(f'error: {e}')
+          
             return JsonResponse({'error': str(e)})
 
 @csrf_exempt
@@ -76,10 +76,10 @@ def stripe_webhook(request):
         return HttpResponse(status=400)
 
     if event['type'] == 'checkout.session.completed':
-        print(f"event data: {event.data.object}")
+    
         user_id = event.data.object["client_reference_id"]
         user = User.objects.get(id=user_id)
-        print(f"found user: {user}")
+     
         try:
             record = PaymentRecord(user=user, name=event.data.object.customer_details["name"], email=event.data.object.customer_details["email"])
             record.save()
