@@ -21,7 +21,10 @@ fetch("/payment/config/")
           return stripe.redirectToCheckout({ sessionId: data.sessionId });
         })
         .then((res) => {
-          console.log(res);
+          if (res.error) {
+            console.log(res.error.message);
+            alert("抱歉，網站目前無法處理您的付款請求，請稍後再試。");
+          }
         });
     });
   });
