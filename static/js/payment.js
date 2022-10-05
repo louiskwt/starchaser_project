@@ -11,7 +11,8 @@ fetch("/payment/config/")
     // Initialize Stripe.js
     const stripe = Stripe(data.publicKey);
     // listener for payment button click event
-    document.querySelector("#payment-btn").addEventListener("click", () => {
+    document.querySelector("#payment-btn").addEventListener("click", (e) => {
+      e.preventDefault();
       // Get Checkout Session ID
       fetch("/payment/create-checkout-session/")
         .then((response) => {
