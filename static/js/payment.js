@@ -1,7 +1,7 @@
 const paymentBtn = document.querySelector("#payment-btn");
 
 // Request for key
-console.log("Requesting key...");
+console.log("Loading...");
 
 fetch("/payment/config/")
   .then((response) => {
