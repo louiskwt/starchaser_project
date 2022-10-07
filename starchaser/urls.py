@@ -34,5 +34,6 @@ urlpatterns = [
     path("resource/", TemplateView.as_view(template_name="resource.html"), name="resource"),
     path("terms/", TemplateView.as_view(template_name="member/consent.html"), name="terms"),
     path('', TemplateView.as_view(template_name="home.html"), name="home"),
-    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap')
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+    path("robots.txt", TemplateView.as_view(template_name="robots.txt", content_type='text/plain'))
 ]
