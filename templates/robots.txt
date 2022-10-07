@@ -1,0 +1,5 @@
+User-Agent: *
+
+Disallow: /member/
+
+Sitemap: https://dsestarchaser.me/sitemap.xml
