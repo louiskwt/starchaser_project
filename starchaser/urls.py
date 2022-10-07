@@ -17,6 +17,13 @@ from re import template
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic.base import TemplateView
+from django.contrib.sitemaps.views import sitemap
+from .sitemaps import StaticViewSitemap
+
+
+sitemaps = {
+    'static': StaticViewSitemap
+}
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,4 +34,5 @@ urlpatterns = [
     path("resource/", TemplateView.as_view(template_name="resource.html"), name="resource"),
     path("terms/", TemplateView.as_view(template_name="member/consent.html"), name="terms"),
     path('', TemplateView.as_view(template_name="home.html"), name="home"),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap')
 ]
