@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'payment.apps.PaymentConfig',
     'multiselectfield',
+    'coverage',
 ]
 
 MIDDLEWARE = [
