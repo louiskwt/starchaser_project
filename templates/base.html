@@ -63,8 +63,7 @@
 						{% if request.user.is_authenticated %}
 							<a href="{% url 'logout_user' %}">登出</a>
 						{% else %}
-																											<a href="{% url 'register' %}">註冊</a>
-							<a href="{% url 'login' %}">登入</a>
+																											<a class="button" href="{% url 'register' %}">註冊 | 登入</a>
 						{% endif %}
 					</li>
 				</ul>
