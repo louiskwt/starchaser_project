@@ -28,8 +28,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = str(os.getenv("SECRET_KEY"))
 
+if os.getenv("MODE") == 'dev':
+    IS_IN_DEBUG_MODE = True
+else:
+    IS_IN_DEBUG_MODE = False
+
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = IS_IN_DEBUG_MODE
 
 ALLOWED_HOSTS = ['127.0.0.1', 'starchaserproject-production.up.railway.app', 'dsestarchaser.me', 'localhost']
 
