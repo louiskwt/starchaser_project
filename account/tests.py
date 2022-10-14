@@ -1,6 +1,7 @@
 from django.test import TestCase
 from django.urls import reverse
 from django.contrib.auth import get_user_model
+from django.contrib.auth.models import User
 # Create your tests here.
 
 class UserSignUpTests(TestCase):
@@ -26,3 +27,16 @@ class UserSignUpTests(TestCase):
         self.assertEqual(get_user_model().objects.all().count(), 1)
         self.assertEqual(get_user_model().objects.all()[0].username, self.username)
         self.assertEqual(get_user_model().objects.all()[0].email, self.email)
+
+class UserLogInTests(TestCase):
+    def setUp(self):
+        self.credentials = {
+            'username': 'testuser',
+            'password': 'secret',
+        }
+        User.objects.create_user(**self.credentials)
+
+    def test_user_login_form(self):
+        response = self.client.post('/member/login', self.credentials, follow=True)
+   
+        self.assertTrue(response.status_code == 200)
