@@ -41,4 +41,15 @@ class UserLogInTests(TestCase):
     def test_user_login_form(self):
         self.assertTrue(c.login(**self.credentials))
 
+class TestCasePage(TestCase):
+    def setUp(self):
+        self.credentials = {
+            'username': 'testuser',
+            'password': 'secret',
+        }
+        User.objects.create_user(**self.credentials)
 
+    def test_authorized_user_access(self):
+        c.login(**self.credentials)
+        response = self.client.get(reverse('case'))
+        self.assertEqual(response.status_code, 302)
