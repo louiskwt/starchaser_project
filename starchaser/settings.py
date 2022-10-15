@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 import os
+import sys
 from pathlib import Path
 from dotenv import load_dotenv
 import dj_database_url
@@ -27,8 +28,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = str(os.getenv("SECRET_KEY"))
 
+if os.getenv("MODE") == 'dev':
+    IS_IN_DEBUG_MODE = True
+else:
+    IS_IN_DEBUG_MODE = False
+
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = IS_IN_DEBUG_MODE
 
 ALLOWED_HOSTS = ['127.0.0.1', 'starchaserproject-production.up.railway.app', 'dsestarchaser.me', 'localhost']
 
@@ -52,6 +58,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'payment.apps.PaymentConfig',
     'multiselectfield',
+    'coverage',
 ]
 
 MIDDLEWARE = [
@@ -94,6 +101,12 @@ DATABASE_URL = os.getenv("DATABASE_URL")
 DATABASES = {
     'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=1800),
 }
+
+if 'test' in sys.argv:
+    DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 
 #    'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
