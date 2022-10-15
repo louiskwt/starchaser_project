@@ -1,8 +1,10 @@
-from django.test import TestCase
+from django.test import TestCase, Client
 from django.urls import reverse
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import User
 # Create your tests here.
+
+c = Client()
 
 class UserSignUpTests(TestCase):
     username = "newuser"
@@ -37,6 +39,6 @@ class UserLogInTests(TestCase):
         User.objects.create_user(**self.credentials)
 
     def test_user_login_form(self):
-        response = self.client.post('/member/login', self.credentials, follow=True)
-   
-        self.assertTrue(response.status_code == 200)
+        self.assertTrue(c.login(**self.credentials))
+
+
