@@ -70,7 +70,7 @@
 
 ## 關於這個 Project
 
-<p align="right">這個project 的目標：</p>
+### 這個 project 的目標：
 
 1. 提供英文學習資源和筆記
 
