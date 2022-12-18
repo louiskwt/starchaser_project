@@ -1,21 +1,29 @@
 {% extends "base/base_generic.html" %}
+{% load static %}
+
 
 {% block content %}
-<div class="container flex flex-col bg-gray-100 h-screen  max-w-screen-sm p-6">
+<main class="max-w-4xl m-auto p-3">
+    <section class="grid place-items-center text-center py-12">
+        <img src='{% static "images/default.png" %}' alt="StarChaser Icon" class="rounded-full w-32 h-32 my-6"> 
+        <h1 class="text-3xl mb-6">DSE StarChaser</h1>
+        <h2 class="text-md">你的線上英文DSE學習伙伴</h2>
+        <p class="text-sm mt-2">本站正進行重建，好快會以新面貌登場</p>
+         <p class="text-sm">詳情請留意我哋嘅 IG 動向 👇🏼</p>
+    </section>
+    <section class="max-w-xl m-auto w-full">
+        <a href="https://www.instagram.com/hk.starchaser/" target="_blank" class="flex justify-center items-center rounded-full mb-6 bg-zinc-900 hover:bg-zinc-500 w-96 h-14">
+            <span class="">Instagram 專頁</span>
+        </a>
+        <a href="https://www.instagram.com/hk.starchaser/" target="_blank" class="flex justify-center items-center rounded-full bg-zinc-900 hover:bg-zinc-500 w-96 h-14">
+            <span class="">免費英文筆記</span>
+        </a>
 
-    <div class="m-auto text-center w-full">
-        <h1 class="text-3xl text-blue-800">StarChaser DSE</h1>
-        <div class="mt-4">
-            <p>你的線上英文DSE學習伙伴</p>
-            <p>本站正進行重建，好快會以新面貌登場</p>
-            <p>詳情請留意我哋嘅 IG 動向</p>
-        </div>
-
-    </div>
+    </section>
 
 
 
-</div>
+</main>
 
 
 {% endblock %}
