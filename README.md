@@ -33,54 +33,45 @@
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a> -->
 
-<h3 align="center">StarChaser</h3>
+
+<h3 align="center">⭐️ DSE StarChaser ⭐️</h3>
 
   <p align="center">
-    Discovering new tutors in Hong Kong
+    一個讓學生學習和提升英文水平的平台  💻
     <br />
-    <!-- <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a> -->
-    <!-- <a href="https://github.com/github_username/repo_name">View Demo</a>
-    ·
-    <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/github_username/repo_name/issues">Request Feature</a> -->
+
   </p>
 </div>
 
 <!-- TABLE OF CONTENTS -->
 <details>
-  <summary>Table of Contents</summary>
+  <summary>目錄</summary>
   <ol>
     <li>
-      <a href="#about-the-project">About The Project</a>
-      <!-- <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul> -->
-    </li>
-    <!-- <li> -->
-      <!-- <a href="#getting-started">Getting Started</a> -->
-      <!-- <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul> -->
-    <!-- </li> -->
-    <li><a href="#roadmap">Roadmap</a></li>
+      <a href="#about-the-project">關於這個 Project</a>
+
+
+    <li><a href="#roadmap">未來預想圖</a></li>
     <!-- <li><a href="#contributing">Contributing</a></li> -->
     <!-- <li><a href="#license">License</a></li> -->
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
+    <li><a href="#contact">搵我傾傾</a></li>
+    <li><a href="#acknowledgments">要感謝的人</a></li>
   </ol>
 </details>
 
 <!-- ABOUT THE PROJECT -->
 
-## About The Project
 
-1. Helping students discover and review tutors
+## 關於這個 Project
 
-2. Promoting great tutors
+### 這個 project 的目標：
 
-3. Helping tutors connect with the students
+1. 提供英文學習資源和筆記
+
+2. 讓學生在線上完成英文練習
+
+3. 建立一個學習社群
+
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
@@ -103,15 +94,17 @@
 
 ## Roadmap
 
-...Coming soon
+
+...即將公佈
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTACT -->
 
-## Contact
+## 搵我傾傾 (聯絡)
 
-Louis - [@twitter_handle](https://twitter.com/kawingt2) - kawingt2@gmail.com
+kwingz - [@twitter_handle](https://twitter.com/kawingt2) - kawingt2@gmail.com
 
 Project Link: [https://starchaserproject-production.up.railway.app/](https://starchaserproject-production.up.railway.app/)
 
@@ -119,9 +112,10 @@ Project Link: [https://starchaserproject-production.up.railway.app/](https://sta
 
 <!-- ACKNOWLEDGMENTS -->
 
-## Acknowledgments
+## 要感謝的人 🙏🏼
 
-- Yoyo (My first and best intern so far...)
+- WY (Yoyo) (My first and best assistant so far...)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

@@ -14,11 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
-from django.views.generic.base import TemplateView
 from django.contrib.sitemaps.views import sitemap
-from .sitemaps import StaticViewSitemap
+from django.urls import include, path
+from django.views.generic.base import TemplateView
 
+from .sitemaps import StaticViewSitemap
 
 sitemaps = {
     'static': StaticViewSitemap
@@ -26,13 +26,8 @@ sitemaps = {
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('member/', include('account.urls')),
-    path('payment/', include('payment.urls')),
-    path('about/', TemplateView.as_view(template_name="about.html"), name="about"),
-    path('blog/', TemplateView.as_view(template_name="blog_index.html"), name="blog"),
-    path("resource/", TemplateView.as_view(template_name="resource.html"), name="resource"),
-    path("terms/", TemplateView.as_view(template_name="member/consent.html"), name="terms"),
-    path('', TemplateView.as_view(template_name="home.html"), name="home"),
+    path('', TemplateView.as_view(template_name="pages/home.html"), name="home"),
+    path('notes/', TemplateView.as_view(template_name="pages/notes.html"), name="notes"),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path("robots.txt", TemplateView.as_view(template_name="robots.txt", content_type='text/plain'))
 ]
