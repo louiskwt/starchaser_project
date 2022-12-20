@@ -33,11 +33,13 @@
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a> -->
 
+
 <h3 align="center">⭐️ DSE StarChaser ⭐️</h3>
 
   <p align="center">
     一個讓學生學習和提升英文水平的平台  💻
     <br />
+
   </p>
 </div>
 
@@ -47,17 +49,8 @@
   <ol>
     <li>
       <a href="#about-the-project">關於這個 Project</a>
-      <!-- <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul> -->
-    </li>
-    <!-- <li> -->
-      <!-- <a href="#getting-started">Getting Started</a> -->
-      <!-- <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul> -->
-    <!-- </li> -->
+
+
     <li><a href="#roadmap">未來預想圖</a></li>
     <!-- <li><a href="#contributing">Contributing</a></li> -->
     <!-- <li><a href="#license">License</a></li> -->
@@ -68,6 +61,7 @@
 
 <!-- ABOUT THE PROJECT -->
 
+
 ## 關於這個 Project
 
 ### 這個 project 的目標：
@@ -77,6 +71,7 @@
 2. 讓學生在線上完成英文練習
 
 3. 建立一個學習社群
+
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
@@ -99,7 +94,9 @@
 
 ## Roadmap
 
+
 ...即將公佈
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -118,6 +115,7 @@ Project Link: [https://starchaserproject-production.up.railway.app/](https://sta
 ## 要感謝的人 🙏🏼
 
 - WY (Yoyo) (My first and best assistant so far...)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
