@@ -1,0 +1,28 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href='{% static "css/output.css" %}'/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <title>StarChaser {% block subtitle %} {% endblock %}</title>
+    
+</head>
+
+<body class="bg-zinc-800 text-amber-500 flex flex-col text-xl font-mono">
+    <main class="max-w-4xl m-auto p-3">
+    <section class="grid place-items-center text-center pt-12">
+        <img src='{% static "images/default.png" %}' alt="StarChaser Icon" class="rounded-full w-32 h-32 my-6"> 
+        <h1 class="text-3xl mb-6">DSE StarChaser</h1>
+        <h2 class="text-md">你的線上英文DSE學習伙伴</h2>
+    </section>
+ 
+    {% block content %} {% endblock %}
+
+
+</main>
+</body>
+</html>
