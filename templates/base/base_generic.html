@@ -12,12 +12,12 @@
     
 </head>
 
-<body class="bg-zinc-800 text-amber-500 flex flex-col text-xl font-mono">
+<body class="bg-zinc-900 text-amber-500 flex flex-col text-xl font-mono overflow-x-hidden">
     <main class="max-w-4xl m-auto p-3">
-    <section class="grid place-items-center text-center pt-12">
-        <img src='{% static "images/default.png" %}' alt="StarChaser Icon" class="rounded-full w-32 h-32 my-6"> 
-        <h1 class="text-3xl mb-6">DSE StarChaser</h1>
-        <h2 class="text-md">你的線上英文DSE學習伙伴</h2>
+    <section class="grid place-items-center text-center pt-8 animate-fade-in-right">
+        <img src='{% static "images/default.png" %}' alt="StarChaser Icon" class="rounded-full w-32 h-32 my-3"> 
+        <h1 class="text-xl font-semibold mb-6 mt-3">DSE StarChaser</h1>
+        <h2 class="text-base">你的線上英文DSE學習伙伴</h2>
     </section>
  
     {% block content %} {% endblock %}
