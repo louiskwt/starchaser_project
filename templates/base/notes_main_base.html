@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href='{% static "css/output.css" %}'/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <title>StarChaser 筆記主頁</title>
+    
+</head>
+
+<body class="bg-zinc-900 text-amber-500 flex flex-col text-xl font-mono overflow-x-hidden">
+  <nav class="py-4 px-2 bg-zinc-800">
+    <div class="container flex flex-wrap items-center justify-between mx-auto">
+        <a href="{% url 'home' %}">
+            <span class="self-center text-xl font-bold text-amber-400">
+                Star Chaser
+            </span>
+        </a>
+    </div>
+  </nav>
+  
+
+    {% block notes %} {% endblock %}
+
+
+</main>
+</body>
+</html>
