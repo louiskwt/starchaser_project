@@ -15,9 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.contrib.sitemaps.views import sitemap
-from django.urls import include, path
 from django.views.generic.base import TemplateView
-from notes.urls import urlpatterns as notes_urlpatterns
 
 from .sitemaps import StaticViewSitemap
 
