@@ -55,13 +55,11 @@ INSTALLED_APPS = [
     'posts.apps.PostsConfig',
     'taggit',
     'services.apps.ServicesConfig',
-    'notes.apps.NotesConfig',
     'django.contrib.sitemaps',
     'django.contrib.sites',
     'payment.apps.PaymentConfig',
     'multiselectfield',
     'coverage',
-    
 ]
 
 MIDDLEWARE = [
