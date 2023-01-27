@@ -17,7 +17,6 @@ from django.contrib import admin
 from django.contrib.sitemaps.views import sitemap
 from django.urls import include, path
 from django.views.generic.base import TemplateView
-
 from notes.urls import urlpatterns as notes_urlpatterns
 
 from .sitemaps import StaticViewSitemap
@@ -29,8 +28,7 @@ sitemaps = {
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', TemplateView.as_view(template_name="pages/home.html"), name="home"),
-    path('notes/', TemplateView.as_view(template_name="pages/notes.html"), name="notes"),
-    path('free-notes/', include((notes_urlpatterns, 'notes_app'))),
+    path('notes/', TemplateView.as_view(template_name="pages/notes.html"), name="notes"),  
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path("robots.txt", TemplateView.as_view(template_name="robots.txt", content_type='text/plain'))
 ]
