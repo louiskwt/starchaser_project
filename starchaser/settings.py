@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'payment.apps.PaymentConfig',
     'multiselectfield',
     'coverage',
+    'portal_manager.apps.PortalManagerConfig',
 ]
 
 MIDDLEWARE = [
