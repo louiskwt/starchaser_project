@@ -103,7 +103,7 @@
 
 kwingz - [@twitter_handle](https://twitter.com/kawingt2) - kawingt2@gmail.com
 
-Project Link: [https://starchaserproject-production.up.railway.app/](https://starchaserproject-production.up.railway.app/)
+Project Link: [https://starchaserproject-production.up.railway.app/](https://dsestarchaser.me/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
