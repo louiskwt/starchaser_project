@@ -9,19 +9,22 @@
     <link rel="stylesheet" href='{% static "css/output.css" %}'/>
       <link rel="icon" type="image/svg+xml" href='{% static "images/new-icon.png" %}' />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
-    <title>StarChaser {% block subtitle %} {% endblock %}</title>
+    <title>DSE StarChaser {% block subtitle %} {% endblock %}</title>
     
 </head>
 
-<body class="bg-zinc-900 text-amber-500 flex flex-col text-xl font-mono overflow-x-hidden">
-    <main class="max-w-4xl m-auto p-3">
-    <section class="grid place-items-center text-center pt-8 animate-fade-in-right">
-        <img src='{% static "images/default.png" %}' alt="StarChaser Icon" class="rounded-full w-32 h-32 my-3"> 
-        <h1 class="text-xl font-semibold mb-6 mt-3">DSE StarChaser</h1>
-        <h2 class="text-base">你的線上英文DSE學習伙伴</h2>
-    </section>
- 
-    {% block content %} {% endblock %}
+<body class="bg-gray-200 font-sans leading-normal tracking-normal">
+  <!--Header-->
+	<div class="w-full m-0 p-0 bg-cover bg-bottom" style="">
+			<div class="container max-w-4xl mx-auto pt-16 md:pt-32 text-center break-normal">
+				<!--Title-->
+					<p class="text-gray-800 font-extrabold text-3xl md:text-5xl">
+						DSE StarChaser   
+					</p>
+					<p class="text-xl md:text-2xl text-gray-600">你的線上學習伙伴</p>
+			</div>
+		</div>
+
 
 
 </main>
