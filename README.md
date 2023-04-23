@@ -33,7 +33,6 @@
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a> -->
 
-
 <h3 align="center">⭐️ DSE StarChaser ⭐️</h3>
 
   <p align="center">
@@ -49,18 +48,18 @@
   <ol>
     <li>
       <a href="#about-the-project">關於這個 Project</a>
-
+    </li>
 
     <li><a href="#roadmap">未來預想圖</a></li>
     <!-- <li><a href="#contributing">Contributing</a></li> -->
     <!-- <li><a href="#license">License</a></li> -->
     <li><a href="#contact">搵我傾傾</a></li>
     <li><a href="#acknowledgments">要感謝的人</a></li>
+
   </ol>
 </details>
 
 <!-- ABOUT THE PROJECT -->
-
 
 ## 關於這個 Project
 
@@ -71,7 +70,6 @@
 2. 讓學生在線上完成英文練習
 
 3. 建立一個學習社群
-
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
@@ -94,9 +92,8 @@
 
 ## Roadmap
 
-
-...即將公佈
-
+- [ ] Exercise App
+- [ ] Vocab Game
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -106,7 +103,7 @@
 
 kwingz - [@twitter_handle](https://twitter.com/kawingt2) - kawingt2@gmail.com
 
-Project Link: [https://starchaserproject-production.up.railway.app/](https://starchaserproject-production.up.railway.app/)
+Project Link: [https://starchaserproject-production.up.railway.app/](https://dsestarchaser.me/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -115,7 +112,6 @@ Project Link: [https://starchaserproject-production.up.railway.app/](https://sta
 ## 要感謝的人 🙏🏼
 
 - WY (Yoyo) (My first and best assistant so far...)
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
