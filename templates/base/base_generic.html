@@ -1,7 +1,7 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,20 +13,31 @@
     
 </head>
 
-<body class="bg-gray-200 font-sans leading-normal tracking-normal">
-  <!--Header-->
-	<div class="w-full m-0 p-0 bg-cover bg-bottom" style="">
-			<div class="container max-w-4xl mx-auto pt-16 md:pt-32 text-center break-normal">
-				<!--Title-->
-					<p class="text-gray-800 font-extrabold text-3xl md:text-5xl">
-						DSE StarChaser   
-					</p>
-					<p class="text-xl md:text-2xl text-gray-600">你的線上學習伙伴</p>
+<body class="bg-[color:var(--primary-color)]">
+  <main class="pt-5">
+	<!-- profile section -->
+	<section class="profile">
+		<div class="m-auto w-full sm:w-[300px]">
+			<div class="mb-5">
+				<div class="profile-picture">
+					<img src="{% static 'images/new-icon.png' %}" alt="profile-image"/>
+				</div>
+				<h1 class="profile-fullname">
+					DSE StarChaser
+				</h1>
 			</div>
+
+			<h1 class="profile-about">關於本站</h1>
+			<div class="profile-bio">
+				本站由 Louis 開發及打理，主要用於分享 DSE 英文及 IELTS 資源
+			</div>
+
+			 <!-- Link Section -->
+			 {% block links %}
+			 {% endblock %}
 		</div>
+	</section>
+  </main>
 
-
-
-</main>
 </body>
 </html>
