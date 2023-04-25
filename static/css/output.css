@@ -754,6 +754,10 @@ video {
   background-color: rgb(75 85 99 / var(--tw-bg-opacity));
 }
 
+.bg-\[color\:var\(--button-\{\{link\.color\}\}\)\]{
+  background-color: var(--button-{{link.color}});
+}
+
 .py-4{
   padding-top: 1rem;
   padding-bottom: 1rem;
