@@ -2,12 +2,12 @@
 
 {% block links %}
 
-    {% for link in links %}
-        <div class="link-button button-{{link.color}}" >
-            <a href="{{ link.url }}">
+    <div class="flex items-center flex-col animate-fade-in-down">
+        {% for link in links %}
+            <a class="link-button button-{{link.color}} hover:animate-press-down" href="{{ link.url }}">
                 {{ link.title }}
             </a>
-        </div>
-    {% endfor %}
+        {% endfor %}
+    </div>
 
 {% endblock %}

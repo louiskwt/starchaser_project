@@ -73,6 +73,9 @@ h1 {
   font-weight: bold;
   border: solid 2px black;
   box-shadow: black 7px 7px 0;
+  display: block;
+  width: 100%;
+  cursor: pointer;
 }
 
 .button-orange {

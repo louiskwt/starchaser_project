@@ -18,19 +18,20 @@
 	<!-- profile section -->
 	<section class="profile">
 		<div class="m-auto w-full sm:w-[300px]">
-			<div class="mb-5">
+			<div class="mb-5 animate-fade-in-right">
 				<div class="profile-picture">
 					<img src="{% static 'images/new-icon.png' %}" alt="profile-image"/>
 				</div>
 				<h1 class="profile-fullname">
 					DSE StarChaser
 				</h1>
+				<h1 class="profile-about">關於本站</h1>
+				<div class="profile-bio">
+					本站由 Louis 開發及打理，主要用於分享 DSE 英文及 IELTS 資源
+				</div>
 			</div>
 
-			<h1 class="profile-about">關於本站</h1>
-			<div class="profile-bio">
-				本站由 Louis 開發及打理，主要用於分享 DSE 英文及 IELTS 資源
-			</div>
+	
 
 			 <!-- Link Section -->
 			 {% block links %}

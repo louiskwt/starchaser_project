@@ -673,6 +673,22 @@ video {
   animation: fade-in-down 1.5s ease-out;
 }
 
+@keyframes fade-in-right{
+  0%{
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  100%{
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in-right{
+  animation: fade-in-right 1.0s ease-out;
+}
+
 .cursor-pointer{
   cursor: pointer;
 }
@@ -752,10 +768,6 @@ video {
 .bg-gray-600{
   --tw-bg-opacity: 1;
   background-color: rgb(75 85 99 / var(--tw-bg-opacity));
-}
-
-.bg-\[color\:var\(--button-\{\{link\.color\}\}\)\]{
-  background-color: var(--button-{{link.color}});
 }
 
 .py-4{
@@ -923,6 +935,9 @@ h1 {
   font-weight: bold;
   border: solid 2px black;
   box-shadow: black 7px 7px 0;
+  display: block;
+  width: 100%;
+  cursor: pointer;
 }
 
 .button-orange {
@@ -944,6 +959,20 @@ h1 {
 .hover\:-translate-y-1:hover{
   --tw-translate-y: -0.25rem;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+@keyframes press-down{
+  0%{
+    box-shadow: black, 7px 7px 0;
+  }
+
+  100%{
+    box-shadow: black, 2px 2px 0;
+  }
+}
+
+.hover\:animate-press-down:hover{
+  animation: press-down 0.5s ease-out;
 }
 
 .hover\:bg-gray-500:hover{
