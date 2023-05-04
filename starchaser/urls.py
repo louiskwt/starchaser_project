@@ -19,6 +19,7 @@ from django.urls import include, path
 from django.views.generic.base import TemplateView
 
 from .sitemaps import StaticViewSitemap
+from .views import HomePageView
 
 sitemaps = {
     'static': StaticViewSitemap
@@ -26,7 +27,7 @@ sitemaps = {
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', TemplateView.as_view(template_name="pages/home.html"), name="home"),
+    path('', HomePageView.as_view(), name="home"),
     path('notes/', TemplateView.as_view(template_name="pages/notes.html"), name="notes"),  
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path("robots.txt", TemplateView.as_view(template_name="robots.txt", content_type='text/plain'))

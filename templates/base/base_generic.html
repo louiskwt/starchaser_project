@@ -1,7 +1,7 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,21 +9,35 @@
     <link rel="stylesheet" href='{% static "css/output.css" %}'/>
       <link rel="icon" type="image/svg+xml" href='{% static "images/new-icon.png" %}' />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
-    <title>StarChaser {% block subtitle %} {% endblock %}</title>
+    <title>DSE StarChaser {% block subtitle %} {% endblock %}</title>
     
 </head>
 
-<body class="bg-zinc-900 text-amber-500 flex flex-col text-xl font-mono overflow-x-hidden">
-    <main class="max-w-4xl m-auto p-3">
-    <section class="grid place-items-center text-center pt-8 animate-fade-in-right">
-        <img src='{% static "images/default.png" %}' alt="StarChaser Icon" class="rounded-full w-32 h-32 my-3"> 
-        <h1 class="text-xl font-semibold mb-6 mt-3">DSE StarChaser</h1>
-        <h2 class="text-base">你的線上英文DSE學習伙伴</h2>
-    </section>
- 
-    {% block content %} {% endblock %}
+<body class="bg-[color:var(--primary-color)]">
+  <main class="pt-5">
+	<!-- profile section -->
+	<section class="profile">
+		<div class="m-auto w-full sm:w-[300px]">
+			<div class="mb-5">
+				<div class="profile-picture">
+					<img src="{% static 'images/new-icon.png' %}" alt="profile-image"/>
+				</div>
+				<h1 class="profile-fullname">
+					DSE StarChaser
+				</h1>
+			</div>
 
+			<h1 class="profile-about">關於本站</h1>
+			<div class="profile-bio">
+				本站由 Louis 開發及打理，主要用於分享 DSE 英文及 IELTS 資源
+			</div>
 
-</main>
+			 <!-- Link Section -->
+			 {% block links %}
+			 {% endblock %}
+		</div>
+	</section>
+  </main>
+
 </body>
 </html>

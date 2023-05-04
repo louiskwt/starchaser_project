@@ -1,3 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC&family=Poppins:wght@400;500;600&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --primary-color: #F4F1DE;
+  --button-orange: #E07A5F;
+  --button-green: #81B29A;
+  --button-blue: #aed9f8;
+  --button-yellow: #F2CC8F;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Popppins", sans-serif;
+}
+
+section {
+    padding: 30px;
+}
+
+/*------- HEADER -------*/
+h1 {
+  margin-bottom: 5px;
+  font-size: 120%;
+  font-weight: bold;
+}
+
+/*------- PROFILE -------*/
+.profile .profile-picture {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.profile .profile-picture img {
+  border-radius: 50%;
+  border: solid 2px black;
+  height: auto;
+  width: 128px;
+}
+.profile .profile-fullname {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile .profile-fullname .profile-fullname-check_mark {
+  margin-left: 3px;
+  color: #4FB6EC;
+}
+
+.profile .profile-bio {
+  margin-bottom: 30px;
+}
+
+.profile .social_media {
+  margin: auto;
+}
+
+.link-button {
+  margin-bottom: 30px;
+  padding: 15px 0;
+  text-align: center;
+  text-transform: capitalize;
+  font-weight: bold;
+  border: solid 2px black;
+  box-shadow: black 7px 7px 0;
+}
+
+.button-orange {
+    background-color: var(--button-orange);
+}
+
+.button-green {
+    background-color: var(--button-green);
+}
+
+.button-yellow {
+    background-color: var(--button-yellow);
+}
+
+.button-blue {
+    background-color: var(--button-green);
+}
+
