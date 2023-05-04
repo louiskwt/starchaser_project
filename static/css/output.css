@@ -647,6 +647,22 @@ video {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+@keyframes fade-in-right{
+  0%{
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  100%{
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in-right{
+  animation: fade-in-right 1.0s ease-out;
+}
+
 @keyframes pulse{
   50%{
     opacity: .5;
@@ -671,22 +687,6 @@ video {
 
 .animate-fade-in-down{
   animation: fade-in-down 1.5s ease-out;
-}
-
-@keyframes fade-in-right{
-  0%{
-    opacity: 0;
-    transform: translateX(50px);
-  }
-
-  100%{
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.animate-fade-in-right{
-  animation: fade-in-right 1.0s ease-out;
 }
 
 .cursor-pointer{
@@ -940,6 +940,12 @@ h1 {
   cursor: pointer;
 }
 
+.link-button:hover {
+  transform: translateY(2px);
+  box-shadow: black 5px 4px 1px;
+  transition: all 0.2s ease-in-out;
+}
+
 .button-orange {
   background-color: var(--button-orange);
 }
@@ -959,16 +965,6 @@ h1 {
 .hover\:-translate-y-1:hover{
   --tw-translate-y: -0.25rem;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-@keyframes press-down{
-  0%{
-    box-shadow: black, 7px 7px 0;
-  }
-
-  100%{
-    box-shadow: black, 2px 2px 0;
-  }
 }
 
 .hover\:animate-press-down:hover{
@@ -1012,4 +1008,5 @@ h1 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
+
 
